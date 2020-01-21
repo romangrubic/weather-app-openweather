@@ -4,10 +4,11 @@ window.addEventListener("load", () => {
     var long;
     var lat;
 
+
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
-            long = position.coords.longitude.toPrecision(4);
-            lat = position.coords.latitude.toPrecision(4);
+            long = position.coords.longitude.toPrecision(5);
+            lat = position.coords.latitude.toPrecision(5);
 
             // Proxy notice    
             const proxy = 'https://cors-anywhere.herokuapp.com/';
@@ -18,16 +19,34 @@ window.addEventListener("load", () => {
                     return response.json();
                 })
                 .then(data => {
-                    console.log(data)
+                    console.log(data);
                     const { name,
                         dt } = data;
 
-                    var h1 = document.createElement("h1");
-                    var date = new Date(dt * 1000);
-                    h1.innerHTML = name + date;
-                    document.getElementById("city-name").appendChild(h1);
+                    const {temp} = data.main;
 
+                    const {main} = data.weather[0]
+
+                    var h1 = document.createElement("p");
+                    h1.innerHTML = name;
+                    document.getElementById("city-name").appendChild(h1);
+                    var cityTemp = document.createElement("p");
+                    cityTemp.innerHTML = Math.round(temp) + " °C";
+                    document.getElementById("city-temp").appendChild(cityTemp);
+                    var cityMain = document.createElement("p");
+                    cityMain.innerHTML = main
+                    document.getElementById("city-main").appendChild(cityMain);
+                    var cityDate = document.createElement("p");
+                    var nDate = new Date(dt*1000);
+                    var dateToString = nDate.toDateString();
+                    var day = dateToString.slice(0, 3);
+                    var number = dateToString.slice(4, 10);
+                    var sortDate = day + ", " + number;
+                    cityDate.innerHTML = sortDate;
+                    document.getElementById("city-date").appendChild(cityDate);
                 });
-        })
+        });
+    } else {
+
     }
 });
