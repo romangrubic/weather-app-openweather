@@ -6,9 +6,21 @@
 body{
     background-color: lightblue;
 }
+
+/* --- Buttons --- */
+.navbar{
+    margin:auto;
+    text-align: center;
+}
+.btn {
+    margin: 5px;
+    width: 100px
+}
+
+
 /* --- City statistics - current --- */
 .current{
-    background-image: radial-gradient(yellow 10%, lightblue 40%);
+    background-image: radial-gradient(yellow 0%, lightblue 40%);
 }
 
 #city-name > p {
@@ -42,15 +54,16 @@ body{
 
 /* --- nextday --- */
 .next-day{
-    margin: 15px;
+    margin:5px auto;
     border: 1px solid black;
     border-radius: 25px;
     text-align: center;
     background-color: white;
+    padding:15px;
 }
 .next-date {
     font-weight: 700;
-    margin: 5px;
+    margin: 5px 0;
 }
 .next-tempMed{
     margin: 10px 5px;

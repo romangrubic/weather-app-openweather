@@ -15,16 +15,16 @@
 		<nav class="navbar navbar-light bg-light navbar-fixed">
 			<form class="form-inline">
 				<input class="form-control mr-sm-2" id="search" type="search" placeholder="Search city" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
+				<button id="search-btn" class="btn btn-outline-success" type="submit" >Search</button>
 			</form>
 			<div class="reset">
-				<button id="reload">Try A Different City</button>
+				<button id="reload" class="btn btn-outline-success">Try A Different City</button>
 			</div>
 		</nav>
 	</header>
 	<section class="container">
 		<div class="row">
-			<div class="col-12 col-md-8 current">
+			<div id="current" class="col-12 col-md-8">
 				<div id="city-name" class="row">
 				</div>
 				<div id="city-temp" class="row">
@@ -35,7 +35,6 @@
 				</div>
 			</div>
 			<div class="col-12 col-md-4">
-				hello
 			</div>
 		</div>
 		<div id="nextday" class="row">

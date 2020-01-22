@@ -1,4 +1,4 @@
-$(".btn").click("load", function () {
+$("#search-btn").click("load", function () {
     pullDataByCity();
     $(".form-inline").hide()
     return false;
@@ -26,6 +26,7 @@ function pullDataByCity() {
 
             const { main } = data.weather[0]
 
+            $("#current").addClass("current")
             var h1 = document.createElement("p");
             h1.innerHTML = name;
             document.getElementById("city-name").appendChild(h1);
@@ -56,7 +57,7 @@ function pullDataByCity() {
         .then(data => {
             console.log(data);
 
-            for (let i = 0; i < 20; i +=2) {
+            for (let i = 0; i < 24; i +=2) {
                 const {dt} = data.list[i];
 
                 const { temp } = data.list[i].main;
