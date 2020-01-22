@@ -1,25 +1,64 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+}
 
+body{
+    background-color: lightblue;
+}
 /* --- City statistics - current --- */
+.current{
+    background-image: radial-gradient(yellow 10%, lightblue 40%);
+}
+
 #city-name > p {
     margin: 20px auto;
     text-align: center;
     font-size:5em;
+    font-weight: 600;
 }
 #city-temp > p {
     margin: 20px auto 10px;
     text-align: center;
     font-size: 5em;
     color: red;
+    font-weight: 500;
 }
 #city-main > p {
     margin: 10px auto;
     text-align: center;
     font-size: 2em;
     color: blue;
+    letter-spacing: 8px;
+    font-weight: 600;
 }
 
 #city-date > p{
     font-size: 2em;
     margin: 20px auto;
     text-align: center;
+    font-weight: 500;
+}
+
+/* --- nextday --- */
+.next-day{
+    margin: 15px;
+    border: 1px solid black;
+    border-radius: 25px;
+    text-align: center;
+    background-color: white;
+}
+.next-date {
+    font-weight: 700;
+    margin: 5px;
+}
+.next-tempMed{
+    margin: 10px 5px;
+    color: red;
+    font-weight: 600;
+    font-size: 25px
+}
+.next-summary{
+    color: blue;
+    font-size: 20px;
 }

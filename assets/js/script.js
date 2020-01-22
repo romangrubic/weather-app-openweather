@@ -36,13 +36,15 @@ function pullDataByCity() {
             cityMain.innerHTML = main
             document.getElementById("city-main").appendChild(cityMain);
             var cityDate = document.createElement("p");
-            var nDate = new Date(dt * 1000);
+            var nDate = new Date(dt*1000);
+            var hours = nDate.getHours();
             var dateToString = nDate.toDateString();
             var day = dateToString.slice(0, 3);
-            var number = dateToString.slice(4, 10);
-            var sortDate = day + ", " + number;
+            var number = dateToString.slice(4, 10);            
+            var sortDate = day + ", " + number + "<br>" + hours + ":00hrs";
             cityDate.innerHTML = sortDate;
             document.getElementById("city-date").appendChild(cityDate);
+
         })
 
     let apiSearchDays = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=bff58e85aa4f33dcceeb856d37837f05`;
@@ -54,37 +56,38 @@ function pullDataByCity() {
         .then(data => {
             console.log(data);
 
-            for (let i = 0; i < 24; i +=2) {
+            for (let i = 0; i < 20; i +=2) {
                 const {dt} = data.list[i];
 
-                const { temp_max,
-                    temp_min } = data.list[i].main;
+                const { temp } = data.list[i].main;
+
+                const {main} = data.list[i].weather[0];
 
 
                 var div = document.createElement("div");
                 div.setAttribute('id', ["newday" + i])
-                div.setAttribute('class', 'col-2 new-day');
+                div.setAttribute('class', 'col-5 col-md-2 next-day');
                 document.getElementById("nextday").appendChild(div);
                 var h6 = document.createElement("p")
                 h6.setAttribute('class', 'next-date')
                 var date = new Date(dt * 1000);
                 var nDate = date.toDateString();
+                var hours = date.getHours();
                 var day = nDate.slice(0, 3);
                 var number = nDate.slice(4, 10);
-                var nDate = day + ", " + number;
+                var nDate = day + ", " + number + "<br>" + hours +":00hrs";
                 h6.innerHTML = nDate;
                 div.appendChild(h6);
-                var tempMax = document.createElement("p");
-                tempMax.setAttribute('class', 'next-tempMax');
-                tempMax.innerHTML = Math.round(temp_max) + " °C";
-                div.appendChild(tempMax);
-                var tempMin = document.createElement("p");
-                tempMin.setAttribute('class', 'next-tempMin');
-                tempMin.innerHTML = Math.round(temp_min) + " °C";
-                div.appendChild(tempMin);
+                var tempMed = document.createElement("p");
+                tempMed.setAttribute('class', 'next-tempMed');
+                tempMed.innerHTML = Math.round(temp) + " °C";
+                div.appendChild(tempMed);
+                var summary = document.createElement("p");
+                summary.setAttribute('class', 'next-summary');
+                summary.innerHTML = main;
+                div.appendChild(summary);
+
                 
-                let datum = new Date(dt*1000)
-                console.log(datum)
             }
         })
 };
