@@ -1,12 +1,14 @@
 $("#search-btn").click("load", function () {
     pullDataByCity();
     $(".form-inline").hide()
+    $("#heading").hide();
     return false;
 });
 
 $("#reload").click(function () {
     window.location.reload();
 })
+
 
 function pullDataByCity() {
 
@@ -57,7 +59,7 @@ function pullDataByCity() {
         .then(data => {
             console.log(data);
 
-            for (let i = 0; i < 24; i +=2) {
+            for (let i = 0; i < 36; i +=2) {
                 const {dt} = data.list[i];
 
                 const { temp } = data.list[i].main;
