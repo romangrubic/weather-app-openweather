@@ -1,7 +1,7 @@
 $(document).ready(function() {
       $("#reset").hide();
-      $("#current-extra").hide();
       $("#extra-btn").hide();
+
 });
 
 // --- User's can press enter instead of clicking on submit button --- 
@@ -10,9 +10,11 @@ $("#search").keypress(function (e) {
  if(key == 13)
   {pullDataByCity();
     $(".form-inline").hide()
+    $("#current-extra").hide();
     $("#heading").hide();
     $("#reset").show();
-    $("#extra-btn").show();    
+    $("#extra-btn").show();
+    $("#reset").removeClass("header")
     return false;  
   }
 });   
@@ -22,7 +24,7 @@ $("#reload").click(function () {
 })
 
 $("#extra-btn").click(function(){
-    $("#current-extra").toggle();
+    $("#current-extra").fadeToggle();
 })
 
 function pullDataByCity() {
@@ -37,7 +39,8 @@ function pullDataByCity() {
         .then(data => {
             console.log(data);
             const { name,
-                dt } = data;
+                dt,
+                timezone } = data;
 
             const { temp,
                 humidity,
@@ -52,6 +55,8 @@ function pullDataByCity() {
             const {all} = data.clouds
 
             const {speed} = data.wind
+
+            let timezoneDiff = timezone/3600
 
             $("#current").addClass("current")
             var h1 = document.createElement("p");
@@ -75,28 +80,28 @@ function pullDataByCity() {
 
             // --- Extra data
             var cloudSky = document.createElement("p");
-            cloudSky.innerHTML = "Clouds on sky " + all + "%";
+            cloudSky.innerHTML = "Clouds on sky - " + all + "%";
             document.getElementById("current-extra").appendChild(cloudSky);
             var currHumidity = document.createElement("p");
-            currHumidity.innerHTML = "Humidity in air " + humidity + "%";
+            currHumidity.innerHTML = "Humidity in air - " + humidity + "%";
             document.getElementById("current-extra").appendChild(currHumidity);
             var currPressure = document.createElement("p");
-            currPressure.innerHTML = "Air pressure " + pressure + " hPa";
+            currPressure.innerHTML = "Air pressure - " + pressure + " hPa";
             document.getElementById("current-extra").appendChild(currPressure);
             var currWind = document.createElement("p");
-            currWind.innerHTML = "Wind speed " + speed + " m/s";
+            currWind.innerHTML = "Wind speed - " + speed + " m/s";
             document.getElementById("current-extra").appendChild(currWind);
             var currSunrise = document.createElement("p");
             var currSunRis = new Date(sunrise*1000);
             var currSunRisH = currSunRis.getHours();
             var currSunRisM = currSunRis.getMinutes();
-            currSunrise.innerHTML = "Sunrise at " + currSunRisH + ":" + currSunRisM;
+            currSunrise.innerHTML = "Sunrise at - " + currSunRisH + ":" + currSunRisM + " hrs";
             document.getElementById("current-extra").appendChild(currSunrise);
             var currSunset = document.createElement("p");
             var currSunSet = new Date(sunset*1000);
             var currSunSetH = currSunSet.getHours();
             var currSunSetM = currSunSet.getMinutes();
-            currSunset.innerHTML = "Sunset at " + currSunSetH + ":" + currSunSetM;
+            currSunset.innerHTML = "Sunset at - " + currSunSetH + ":" + currSunSetM + " hrs";
             document.getElementById("current-extra").appendChild(currSunset);
 
 

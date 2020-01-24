@@ -13,18 +13,17 @@
 <body>
 	<header>
         <h1 id="heading">Weather<br>in your pocket!</h1>
-		<nav class="navbar">
+		<nav class="navbar header">
 			<form class="form-inline">
 				<input class="form-control mr-sm-2" id="search" type="search" placeholder="Search city" aria-label="Search" return false>
 			</form>
 		</nav>
-        <div id="reset" class="reset">
+        <div id="reset" class="reset header">
 				<button id="reload" class="btn btn-info">Try A Different City</button>
 			</div>
 
 	</header>
-	<section class="container-fluid">
-		
+	<section class="container-fluid">		
 			<div class="row">
 				<div id="current" class="col-12 col-md-8">
 					<div id="city-name" class="row">
@@ -37,7 +36,7 @@
 					</div>
 				</div>
 				<div id="current-div" class="col-12 col-md-4">
-                    <button id="extra-btn">More data...</button>
+                    <button id="extra-btn" class="btn btn-info">More data...</button>
                     <div id="current-extra"> </div>
                     
 				</div>
