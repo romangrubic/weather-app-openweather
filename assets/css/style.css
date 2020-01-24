@@ -27,8 +27,13 @@ margin-top: 10%;
     width: 200px;
 }
 .btn-info{
-    background-color: rgba(173, 216, 230, 0.637);
+    background-color: rgba(123, 218, 250, 0.637);
 }
+#reload{
+    
+    font-weight: 700;
+}
+
 /* --- Heading --- */
 #heading{
     margin: 20% auto 0;
@@ -41,18 +46,18 @@ margin-top: 10%;
 
 /* --- City statistics - current --- */
 .current{
-    padding: 5px 60px;
+    padding: 25px 60px;
     background-image: radial-gradient(circle, rgba(255, 255, 255, 0.6) 45%, rgba(173, 216, 230, 0.01) 50%);
 }
 
 #city-name > p {
-    margin: 20px auto;
+    margin: 20px auto 0;
     text-align: center;
-    font-size:5em;
-    font-weight: 600;
+    font-size:3em;
+    font-weight: 700;
 }
 #city-temp > p {
-    margin: 20px auto 10px;
+    margin: 10px auto 10px;
     text-align: center;
     font-size: 5em;
     color: red;
@@ -66,13 +71,18 @@ margin-top: 10%;
     letter-spacing: 8px;
     font-weight: 600;
 }
-
 #city-date > p{
     font-size: 2em;
-    margin: 20px auto 40px;
+    margin: 10px auto 40px;
     text-align: center;
     font-weight: 500;
     
+}
+
+/* --- Current extra data --- */
+#current-div{
+text-align: center;
+    padding: 150px 0 0;
 }
 
 /* --- nextday --- */
@@ -80,7 +90,7 @@ margin-top: 10%;
     margin:5px auto;
     border-radius: 100px;
     text-align: center;
-    background-color: white;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.7) 45%, rgba(173, 216, 230, 0.01) 50%);
     padding:30px;
     /*background-image: radial-gradient(white 40%, lightblue 50%);*/
 }
@@ -90,12 +100,12 @@ margin-top: 10%;
 }
 .next-tempMed{
     margin: 10px 5px;
-    color: rgb(255, 51, 0);
+    color: red;
     font-weight: 700;
     font-size: 20px
 }
 .next-summary{
-    color: rgb(0, 81, 255);
+    color:orangered;
     font-size: 20px;
     font-weight: 600
 }

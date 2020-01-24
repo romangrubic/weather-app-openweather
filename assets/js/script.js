@@ -1,5 +1,7 @@
 $(document).ready(function() {
       $("#reset").hide();
+      $("#current-extra").hide();
+      $("#extra-btn").hide();
 });
 
 // --- User's can press enter instead of clicking on submit button --- 
@@ -10,7 +12,7 @@ $("#search").keypress(function (e) {
     $(".form-inline").hide()
     $("#heading").hide();
     $("#reset").show();
-    
+    $("#extra-btn").show();    
     return false;  
   }
 });   
@@ -19,6 +21,9 @@ $("#reload").click(function () {
     window.location.reload();
 })
 
+$("#extra-btn").click(function(){
+    $("#current-extra").toggle();
+})
 
 function pullDataByCity() {
 
@@ -34,13 +39,23 @@ function pullDataByCity() {
             const { name,
                 dt } = data;
 
-            const { temp } = data.main;
+            const { temp,
+                humidity,
+                pressure } = data.main;
 
             const { main } = data.weather[0]
 
+            const {country,
+                sunrise,
+                sunset} = data.sys
+
+            const {all} = data.clouds
+
+            const {speed} = data.wind
+
             $("#current").addClass("current")
             var h1 = document.createElement("p");
-            h1.innerHTML = name;
+            h1.innerHTML = name + ", " + country;
             document.getElementById("city-name").appendChild(h1);
             var cityTemp = document.createElement("p");
             cityTemp.innerHTML = Math.round(temp) + " °C";
@@ -57,6 +72,34 @@ function pullDataByCity() {
             var sortDate = day + ", " + number + "<br>" + hours + ":00hrs";
             cityDate.innerHTML = sortDate;
             document.getElementById("city-date").appendChild(cityDate);
+
+            // --- Extra data
+            var cloudSky = document.createElement("p");
+            cloudSky.innerHTML = "Clouds on sky " + all + "%";
+            document.getElementById("current-extra").appendChild(cloudSky);
+            var currHumidity = document.createElement("p");
+            currHumidity.innerHTML = "Humidity in air " + humidity + "%";
+            document.getElementById("current-extra").appendChild(currHumidity);
+            var currPressure = document.createElement("p");
+            currPressure.innerHTML = "Air pressure " + pressure + " hPa";
+            document.getElementById("current-extra").appendChild(currPressure);
+            var currWind = document.createElement("p");
+            currWind.innerHTML = "Wind speed " + speed + " m/s";
+            document.getElementById("current-extra").appendChild(currWind);
+            var currSunrise = document.createElement("p");
+            var currSunRis = new Date(sunrise*1000);
+            var currSunRisH = currSunRis.getHours();
+            var currSunRisM = currSunRis.getMinutes();
+            currSunrise.innerHTML = "Sunrise at " + currSunRisH + ":" + currSunRisM;
+            document.getElementById("current-extra").appendChild(currSunrise);
+            var currSunset = document.createElement("p");
+            var currSunSet = new Date(sunset*1000);
+            var currSunSetH = currSunSet.getHours();
+            var currSunSetM = currSunSet.getMinutes();
+            currSunset.innerHTML = "Sunset at " + currSunSetH + ":" + currSunSetM;
+            document.getElementById("current-extra").appendChild(currSunset);
+
+
 
         })
 

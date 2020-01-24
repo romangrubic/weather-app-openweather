@@ -17,10 +17,10 @@
 			<form class="form-inline">
 				<input class="form-control mr-sm-2" id="search" type="search" placeholder="Search city" aria-label="Search" return false>
 			</form>
-			<div id="reset" class="reset">
+		</nav>
+        <div id="reset" class="reset">
 				<button id="reload" class="btn btn-info">Try A Different City</button>
 			</div>
-		</nav>
 
 	</header>
 	<section class="container-fluid">
@@ -36,7 +36,10 @@
 					<div id="city-date" class="row">
 					</div>
 				</div>
-				<div class="col-12 col-md-4">
+				<div id="current-div" class="col-12 col-md-4">
+                    <button id="extra-btn">More data...</button>
+                    <div id="current-extra"> </div>
+                    
 				</div>
 			</div>
 			<div id="nextday" class="row"></div>
