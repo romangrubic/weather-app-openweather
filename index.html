@@ -12,33 +12,34 @@
 
 <body>
 	<header>
-		<nav class="navbar navbar-light bg-light navbar-fixed">
+        <h1 id="heading">Weather<br>in your pocket!</h1>
+		<nav class="navbar">
 			<form class="form-inline">
-				<input class="form-control mr-sm-2" id="search" type="search" placeholder="Search city" aria-label="Search">
-				<button id="search-btn" class="btn btn-info" type="submit" >Search</button>
+				<input class="form-control mr-sm-2" id="search" type="search" placeholder="Search city" aria-label="Search" return false>
 			</form>
-			<div class="reset">
+			<div id="reset" class="reset">
 				<button id="reload" class="btn btn-info">Try A Different City</button>
 			</div>
 		</nav>
+
 	</header>
 	<section class="container-fluid">
-    <h1 id="heading">Type in the search bar to check up to next 72hrs <br> for ANY location on Earth!</h1>
-		<div class="row">
-			<div id="current" class="col-12 col-md-8">
-				<div id="city-name" class="row">
+		
+			<div class="row">
+				<div id="current" class="col-12 col-md-8">
+					<div id="city-name" class="row">
+					</div>
+					<div id="city-temp" class="row">
+					</div>
+					<div id="city-main" class="row">
+					</div>
+					<div id="city-date" class="row">
+					</div>
 				</div>
-				<div id="city-temp" class="row">
-				</div>
-				<div id="city-main" class="row">
-				</div>
-				<div id="city-date" class="row">
+				<div class="col-12 col-md-4">
 				</div>
 			</div>
-			<div class="col-12 col-md-4">
-			</div>
-		</div>
-		<div id="nextday" class="row"></div>
+			<div id="nextday" class="row"></div>
 	</section>
 	<footer>
 	</footer>

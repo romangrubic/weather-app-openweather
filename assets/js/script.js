@@ -1,9 +1,19 @@
-$("#search-btn").click("load", function () {
-    pullDataByCity();
+$(document).ready(function() {
+      $("#reset").hide();
+});
+
+// --- User's can press enter instead of clicking on submit button --- 
+$("#search").keypress(function (e) {
+ var key = e.which;
+ if(key == 13)
+  {pullDataByCity();
     $(".form-inline").hide()
     $("#heading").hide();
-    return false;
-});
+    $("#reset").show();
+    
+    return false;  
+  }
+});   
 
 $("#reload").click(function () {
     window.location.reload();

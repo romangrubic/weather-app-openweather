@@ -2,28 +2,38 @@
     margin:0;
     box-sizing: border-box;
 }
-
-body{
-    background-color: lightblue;
+body { 
+  background: url('../images/sky.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
+
 
 /* --- Buttons --- */
 .navbar{
-    margin:auto;
-    text-align: center;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+#search{
+margin-top: 10%;
 }
 .btn {
-    margin: 5px;
+    margin: 10px;
     width: 200px;
 }
 .btn-info{
-    background-color: lightblue;
+    background-color: rgba(173, 216, 230, 0.637);
 }
 /* --- Heading --- */
 #heading{
-    margin: 15% auto;
+    margin: 20% auto 0;
     text-align: center;
-    color: orangered;
+    color: orange;
     font-weight: 600;
     font-size: 3em;
     text-shadow: -1px 0 rgba(0, 0, 0, 0.5), 0 1px rgba(0, 0, 0, 0.5), 1px 0 rgba(0, 0, 0, 0.5), 0 -1px rgba(0, 0, 0, 0.5);
@@ -31,8 +41,8 @@ body{
 
 /* --- City statistics - current --- */
 .current{
-    padding: 60px;
-    background-image: radial-gradient(white 45%, lightblue 50%);
+    padding: 5px 60px;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.6) 45%, rgba(173, 216, 230, 0.01) 50%);
 }
 
 #city-name > p {
@@ -71,8 +81,8 @@ body{
     border-radius: 100px;
     text-align: center;
     background-color: white;
-    padding:50px;
-    background-image: radial-gradient(white 40%, lightblue 50%);
+    padding:30px;
+    /*background-image: radial-gradient(white 40%, lightblue 50%);*/
 }
 .next-date {
     font-weight: 700;
@@ -82,7 +92,7 @@ body{
     margin: 10px 5px;
     color: rgb(255, 51, 0);
     font-weight: 700;
-    font-size: 25px
+    font-size: 20px
 }
 .next-summary{
     color: rgb(0, 81, 255);
