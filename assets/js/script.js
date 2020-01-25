@@ -56,7 +56,7 @@ function pullDataByCity() {
 
             const {speed} = data.wind
 
-            let timezoneDiff = timezone/3600
+            let timezoneDiff = (timezone/3600);
 
             $("#current").addClass("current")
             var h1 = document.createElement("p");
@@ -70,8 +70,10 @@ function pullDataByCity() {
             document.getElementById("city-main").appendChild(cityMain);
             var cityDate = document.createElement("p");
             var nDate = new Date(dt*1000);
-            var hours = nDate.getHours();
-            var dateToString = nDate.toDateString();
+            var timeDiff = timezoneDiff * 60;
+            var offsetTime = new Date(nDate.getTime() + timeDiff * 60 * 1000);
+            var hours = offsetTime.getHours();
+            var dateToString = offsetTime.toDateString();
             var day = dateToString.slice(0, 3);
             var number = dateToString.slice(4, 10);            
             var sortDate = day + ", " + number + "<br>" + hours + ":00hrs";
@@ -93,14 +95,18 @@ function pullDataByCity() {
             document.getElementById("current-extra").appendChild(currWind);
             var currSunrise = document.createElement("p");
             var currSunRis = new Date(sunrise*1000);
-            var currSunRisH = currSunRis.getHours();
-            var currSunRisM = currSunRis.getMinutes();
+            var sunRisDiff = timezoneDiff * 60;
+            var realSunRisTime = new Date(currSunRis.getTime() + sunRisDiff * 60 * 1000);
+            var currSunRisH = realSunRisTime.getHours();
+            var currSunRisM = realSunRisTime.getMinutes();
             currSunrise.innerHTML = "Sunrise at - " + currSunRisH + ":" + currSunRisM + " hrs";
             document.getElementById("current-extra").appendChild(currSunrise);
             var currSunset = document.createElement("p");
             var currSunSet = new Date(sunset*1000);
-            var currSunSetH = currSunSet.getHours();
-            var currSunSetM = currSunSet.getMinutes();
+            var sunSetDiff = timezoneDiff * 60;
+            var realSunSetTime = new Date(currSunSet.getTime() + sunSetDiff * 60 * 1000);
+            var currSunSetH = realSunSetTime.getHours();
+            var currSunSetM = realSunSetTime.getMinutes();
             currSunset.innerHTML = "Sunset at - " + currSunSetH + ":" + currSunSetM + " hrs";
             document.getElementById("current-extra").appendChild(currSunset);
 
@@ -124,6 +130,9 @@ function pullDataByCity() {
 
                 const {main} = data.list[i].weather[0];
 
+                const {timezone} = data.city;
+
+                let timezoneDiffNextDay = timezone/3600
 
                 var div = document.createElement("div");
                 div.setAttribute('id', ["newday" + i])
@@ -132,8 +141,10 @@ function pullDataByCity() {
                 var h6 = document.createElement("p")
                 h6.setAttribute('class', 'next-date')
                 var date = new Date(dt * 1000);
-                var nDate = date.toDateString();
-                var hours = date.getHours();
+                var timeDiff = timezoneDiffNextDay * 60;
+                var timeDiffNextDay = new Date(date.getTime() + timeDiff * 60 * 1000);
+                var nDate = timeDiffNextDay.toDateString();
+                var hours = timeDiffNextDay.getHours();
                 var day = nDate.slice(0, 3);
                 var number = nDate.slice(4, 10);
                 var nDate = day + ", " + number + "<br>" + hours +":00hrs";
