@@ -41,19 +41,14 @@ function pullDataByCity() {
             const { name,
                 dt,
                 timezone } = data;
-
             const { temp,
                 humidity,
                 pressure } = data.main;
-
             const { main } = data.weather[0]
-
             const {country,
                 sunrise,
                 sunset} = data.sys
-
             const {all} = data.clouds
-
             const {speed} = data.wind
 
             let timezoneDiff = (timezone/3600);
@@ -66,7 +61,7 @@ function pullDataByCity() {
             cityTemp.innerHTML = Math.round(temp) + " °C";
             document.getElementById("city-temp").appendChild(cityTemp);
             var cityMain = document.createElement("p");
-            cityMain.innerHTML = main
+            cityMain.innerHTML = main.toUpperCase()
             document.getElementById("city-main").appendChild(cityMain);
             var cityDate = document.createElement("p");
             var nDate = new Date(dt*1000);
@@ -82,10 +77,10 @@ function pullDataByCity() {
 
             // --- Extra data
             var cloudSky = document.createElement("p");
-            cloudSky.innerHTML = "Clouds on sky - " + all + "%";
+            cloudSky.innerHTML = "Clouds - " + all + "%";
             document.getElementById("current-extra").appendChild(cloudSky);
             var currHumidity = document.createElement("p");
-            currHumidity.innerHTML = "Humidity in air - " + humidity + "%";
+            currHumidity.innerHTML = "Humidity - " + humidity + "%";
             document.getElementById("current-extra").appendChild(currHumidity);
             var currPressure = document.createElement("p");
             currPressure.innerHTML = "Air pressure - " + pressure + " hPa";
@@ -109,9 +104,6 @@ function pullDataByCity() {
             var currSunSetM = realSunSetTime.getMinutes();
             currSunset.innerHTML = "Sunset at - " + currSunSetH + ":" + currSunSetM + " hrs";
             document.getElementById("current-extra").appendChild(currSunset);
-
-
-
         })
 
     let apiSearchDays = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=bff58e85aa4f33dcceeb856d37837f05`;
@@ -123,13 +115,10 @@ function pullDataByCity() {
         .then(data => {
             console.log(data);
 
-            for (let i = 0; i < 36; i +=2) {
+            for (let i = 0; i < 20; i +=2) {
                 const {dt} = data.list[i];
-
                 const { temp } = data.list[i].main;
-
                 const {main} = data.list[i].weather[0];
-
                 const {timezone} = data.city;
 
                 let timezoneDiffNextDay = timezone/3600
@@ -156,10 +145,8 @@ function pullDataByCity() {
                 div.appendChild(tempMed);
                 var summary = document.createElement("p");
                 summary.setAttribute('class', 'next-summary');
-                summary.innerHTML = main;
-                div.appendChild(summary);
-
-                
+                summary.innerHTML = main.toUpperCase();
+                div.appendChild(summary);                
             }
         })
 };
