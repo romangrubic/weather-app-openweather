@@ -12,36 +12,53 @@
 
 <body>
 	<header>
-        <h1 id="heading">Weather<br>in your pocket!</h1>
-		<nav class="navbar header">
-			<form class="form-inline">
-				<input class="form-control mr-sm-2" id="search" type="search" placeholder="Search city" required aria-label="Search">
+		<h1 id="heading">Weather<br>in your pocket!</h1>
+			<nav class="navbar header">
+				<form class="form-inline">
+					<input class="form-control mr-sm-2" id="search" type="search" placeholder="Search city" required aria-label="Search">
 			</form>
-		</nav>
-        <div id="reset" class="reset heading">
+			</nav>
+			<div id="reset" class="reset heading">
 				<button id="reload" class="btn btn-info">Try A Different City</button>
 			</div>
 
 	</header>
-	<section class="container-fluid">		
-			<div class="row">
-				<div id="current" class="col-12 col-md-8">
-					<div id="city-name" class="row">
-					</div>
-					<div id="city-temp" class="row">
-					</div>
-					<div id="city-main" class="row">
-					</div>
-					<div id="city-date" class="row">
-					</div>
+	<section class="container-fluid">
+		<div class="row">
+			<div id="current" class="col-12 col-md-8">
+				<div id="city-name" class="row">
 				</div>
-				<div id="current-div" class="col-12 col-md-4">
-                    <button id="extra-btn" class="btn btn-info">More data...</button>
-                    <div id="current-extra"> </div>
-                    
+				<div id="city-temp" class="row">
+				</div>
+				<div id="city-main" class="row">
+				</div>
+				<div id="city-date" class="row">
 				</div>
 			</div>
-			<div id="nextday" class="row justify-content-around"></div>
+			<div id="current-div" class="col-12 col-md-4">
+				<button id="extra-btn" class="btn btn-info">More data...</button>
+				<div id="current-extra"> </div>
+
+			</div>
+		</div>
+		<div id="nextday" class="row justify-content-around"></div>
+		<!-- Implement a carousel with next day -->
+		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+			<div id="carousel" class="carousel-inner">
+				<div class="carousel-item active">
+					<div clas="first-slide">
+                    <h1>Check weather for next days</h1>
+                    </div>
+				</div>
+				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
 	</section>
 	<footer>
 	</footer>
