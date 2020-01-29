@@ -7,12 +7,13 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/41a908fb89.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="assets/css/style.css" type="text/css">
 </head>
 
 <body>
 	<header>
-		<h1 id="heading">Weather<br>in your pocket!</h1>
+		<h1 id="heading">Weather on Earth!</h1>
 			<nav class="navbar header">
 				<form class="form-inline" onsubmit="searchCity(); return false" >
 					<input class="form-control mr-sm-2" id="search" type="text" placeholder="Search by city" minlength="3" required aria-label="Search" onsubmit="searchCity(); return false" >                 
@@ -62,6 +63,24 @@
 			</div>
 	</section>
 	<footer>
+        <div>
+			<ul class="list-inline col-12">
+				<li class="list-inline-item">
+					<a href="https://www.linkedin.com/in/roman-grubic-b835ab67/" target="-blank">
+						<i class="fab fa-linkedin" aria-hidden="true"></i>
+						<span class="sr-only">LinkedIn</span></a>
+				</li>
+				<li class="list-inline-item">
+					<a href="https://github.com/romangrubic" target="-blank">
+						<i class="fab fa-github" aria-hidden="true"></i>
+						<span class="sr-only">Github</span></a>
+				</li>
+				<li class="list-inline-item">
+					<i class="fas fa-envelope-open-text" aria-hidden="true" data-toggle="modal" data-target="#contactModal"></i>
+					<span class="sr-only">E-mail</span>
+				</li>
+			</ul>
+		</div>
 	</footer>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABiksQrikxcUzI6QN0f2ZggAX4CwvdDhc" async defer>
 	</script>

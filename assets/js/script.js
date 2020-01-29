@@ -125,7 +125,7 @@ function pullDataByCity() {
                 .then(data => {
                     console.log(data);
 
-                    for (i = 1; i < 7; i++) {
+                    for (i = 1; i < 9; i++) {
                         const { summary,
                             temperatureHigh,
                             temperatureLow,
