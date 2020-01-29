@@ -104,24 +104,26 @@ background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50px;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.75);
-    padding:10px;
+    padding:15px;
 }
 .next-temp{
     color: red;
     font-weight: 600;
+    font-size: 20px;
 }
 .next-precip{
     font-weight: 600;
+    font-size: 20px;
 }
 .new-day > h5 {
     color:rgb(0, 140, 255);
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 500;
     margin: 15px 0;
 }
 .new-day > h6 {
     font-weight: 700;
-    font-size: 17px;
+    font-size: 27px;
     margin: 10px 0;
 }
 
@@ -129,14 +131,29 @@ background-color: rgba(255, 255, 255, 0.5);
 #carouselExampleIndicators{
     margin: 20px auto;
 }
-.first-slide > h1{
-    margin: 40px;
-    border-radius: 50px;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.75);
-    padding:10px;
+.carousel-item > div > h1 {
+    padding: 65px;
+    font-size: 50px;
 }
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-color: blue;
+    border-radius: 20px;
+    width: 50px;
+    height: 70px;
+    background-color: rgb(0, 140, 255, 0.7);
+}
+
+/* --- Media queries --- */
+@media only screen and (max-width: 768px) {
+    .carousel-item > div > h1 {
+        padding: 70px 0;
+        font-size: 35px;
+    }
+    .new-day > h5 {
+        padding: 5px;
+        font-size: 22px;
+    }
+    .new-day > h6 {
+        font-size: 23px;
+    }
 }

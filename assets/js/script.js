@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $("#reset").hide();
     $("#extra-btn").hide();
+    $(".carousel").hide();
 
 });
 
@@ -15,6 +16,7 @@ $("#search").keypress(function (e) {
         $("#reset").show();
         $("#extra-btn").show();
         $("#reset").removeClass("header")
+        $(".carousel").show();
         return false;
     }
 });
@@ -119,7 +121,7 @@ function pullDataByCity() {
                 .then(data => {
                     console.log(data);
 
-                    for (i = 1; i < 6; i++) {
+                    for (i = 1; i < 7; i++) {
                         const { summary,
                             temperatureHigh,
                             temperatureLow,
