@@ -25,7 +25,7 @@
 	</header>
 	<section class="container-fluid">
 		<div class="row">
-			<div id="current" class="col-12 col-md-8">
+			<div id="current" class="col-12 col-md-7">
 				<div id="city-name" class="row">
 				</div>
 				<div id="city-temp" class="row">
@@ -35,8 +35,9 @@
 				<div id="city-date" class="row">
 				</div>
 			</div>
-			<div id="current-div" class="col-12 col-md-4">
+			<div id="current-div" class="col-12 col-md-5">
 				<button id="extra-btn" class="btn btn-info">More data...</button>
+                <div id="map"></div>
 				<div id="current-extra"> </div>
 
 			</div>
@@ -47,8 +48,8 @@
 			<div id="carousel" class="carousel-inner">
 				<div class="carousel-item active new-day">
 					<div clas="first-slide">
-                        <h1>Weather <br> for next days</h1>
-                    </div>
+						<h1>Weather <br> for next days</h1>
+					</div>
 				</div>
 				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -62,6 +63,8 @@
 	</section>
 	<footer>
 	</footer>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABiksQrikxcUzI6QN0f2ZggAX4CwvdDhc" async defer>
+	</script>
 	<script src="https://code.jquery.com/jquery-3.4.1.js"
 		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"

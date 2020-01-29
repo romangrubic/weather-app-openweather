@@ -50,53 +50,53 @@ body {
 
 /* --- City statistics - current --- */
 .current{
-    padding: 25px;
     background-color: rgba(255, 255, 255, 0.4);
 }
 
 #city-name > p {
-    margin: 20px auto 0;
+    margin: 20px auto;
     text-align: center;
-    font-size:3.5em;
+    font-size:4em;
     font-weight: 700;
+    letter-spacing: 2px
 }
 #city-temp > p {
-    margin: 10px auto 10px;
+    margin: 0 auto;
     text-align: center;
     font-size: 5em;
     color: red;
-    font-weight: 500;
+    font-weight: 600;
 }
 #city-main > p {
-    margin: 10px auto;
+    margin: 20px auto;
     text-align: center;
-    font-size: 2em;
+    font-size: 2.5em;
     color:rgb(0, 140, 255);
-    letter-spacing: 8px;
-    font-weight: 500;
+    letter-spacing: 10px;
+    font-weight: 700;
 }
 #city-date > p{
     font-size: 2em;
     margin: 10px auto 40px;
     text-align: center;
-    font-weight: 500;
-    
+    font-weight: 500;    
 }
 
 /* --- Current extra data --- */
 #current-div{
- background-color: rgba(255, 255, 255, 0.4);
-text-align: center;
-font-size: 1.5em;
-font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 600;
+    height: 520px
 }
 #extra-btn{
-margin: 60px 0 12px;
+    margin: 60px 0 12px;
 }
 #current-extra > p {
     margin: 0;
-padding: 15px 0;
-background-color: rgba(255, 255, 255, 0.5);
+    padding: 15px 0;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 /* Newdays */
@@ -104,7 +104,6 @@ background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50px;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.75);
-    padding:15px;
 }
 .next-temp{
     color: red;
@@ -141,6 +140,12 @@ background-color: rgba(255, 255, 255, 0.5);
     width: 50px;
     height: 70px;
     background-color: rgb(0, 140, 255, 0.7);
+}
+/* --- Map --- */
+#map{
+    margin: 30px auto 0;
+    max-width: 500px;
+    height: 55%
 }
 
 /* --- Media queries --- */

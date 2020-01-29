@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $("#reset").hide();
-    $("#extra-btn").hide();
+    $("#current-div").hide();
     $(".carousel").hide();
 
 });
@@ -14,7 +14,7 @@ $("#search").keypress(function (e) {
         $("#current-extra").hide();
         $("#heading").hide();
         $("#reset").show();
-        $("#extra-btn").show();
+        $("#current-div").show();
         $("#reset").removeClass("header")
         $(".carousel").show();
         return false;
@@ -26,7 +26,8 @@ $("#reload").click(function () {
 })
 
 $("#extra-btn").click(function () {
-    $("#current-extra").fadeToggle();
+    $("#current-extra").toggle();
+    $("#map").toggle();
 })
 
 
@@ -58,6 +59,12 @@ function pullDataByCity() {
                 lon } = data.coord
 
             let timezoneDiff = (timezone / 3600);
+
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: lat, lng: lon },
+                zoom: 10
+            });
+
 
             $("#current").addClass("current")
             var h1 = document.createElement("p");
