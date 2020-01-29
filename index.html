@@ -14,8 +14,8 @@
 	<header>
 		<h1 id="heading">Weather<br>in your pocket!</h1>
 			<nav class="navbar header">
-				<form class="form-inline">
-					<input class="form-control mr-sm-2" id="search" type="search" placeholder="Search city" required aria-label="Search">
+				<form class="form-inline" onsubmit="searchCity(); return false" >
+					<input class="form-control mr-sm-2" id="search" type="text" placeholder="Search by city" minlength="3" required aria-label="Search" onsubmit="searchCity(); return false" >                 
 			</form>
 			</nav>
 			<div id="reset" class="reset heading">
@@ -48,7 +48,7 @@
 			<div id="carousel" class="carousel-inner">
 				<div class="carousel-item active new-day">
 					<div clas="first-slide">
-						<h1>Weather <br> for next days</h1>
+						<h1 id="notReal">Weather <br> for next days</h1>
 					</div>
 				</div>
 				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

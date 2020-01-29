@@ -5,11 +5,9 @@ $(document).ready(function () {
 
 });
 
-// --- User's can press enter instead of clicking on submit button --- 
-$("#search").keypress(function (e) {
-    var key = e.which;
-    if (key == 13) {
-        pullDataByCity();
+ //--- User's can press enter instead of clicking on submit button --- 
+function searchCity() {           
+        pullDataByCity();        
         $(".form-inline").hide()
         $("#current-extra").hide();
         $("#heading").hide();
@@ -17,9 +15,7 @@ $("#search").keypress(function (e) {
         $("#current-div").show();
         $("#reset").removeClass("header")
         $(".carousel").show();
-        return false;
-    }
-});
+    };
 
 $("#reload").click(function () {
     window.location.reload();
@@ -38,14 +34,16 @@ function pullDataByCity() {
     let apiSearch = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=bff58e85aa4f33dcceeb856d37837f05`;
 
     fetch(apiSearch)
-        .then(response => {
+        .then(response => { 
             return response.json();
-        })
+            })
+        
         .then(data => {
             console.log(data);
             const { name,
                 dt,
-                timezone } = data;
+                timezone,
+                message } = data;
             const { temp,
                 humidity,
                 pressure } = data.main;
@@ -58,14 +56,13 @@ function pullDataByCity() {
             const { lat,
                 lon } = data.coord
 
-            let timezoneDiff = (timezone / 3600);
+            let timezoneDiff = (timezone / 3600);            
 
             map = new google.maps.Map(document.getElementById('map'), {
                 center: { lat: lat, lng: lon },
                 zoom: 10
             });
-
-
+            
             $("#current").addClass("current")
             var h1 = document.createElement("p");
             h1.innerHTML = name + ", " + country;
@@ -167,3 +164,4 @@ function pullDataByCity() {
                 })
         })
 };
+
