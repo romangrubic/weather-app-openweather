@@ -18,7 +18,7 @@
 		<h1 id="heading">Weather 360°</h1>
 			<nav class="navbar header">
 				<form class="form-inline" onsubmit="searchCity(); return false" >
-					<input class="form-control mr-sm-2" id="search" type="text" placeholder="Search by city" minlength="3" required aria-label="Search" onsubmit="searchCity(); return false" >                 
+					<input class="form-control" id="search" type="text" placeholder="Search by city and press enter key" minlength="3" required aria-label="Search" onsubmit="searchCity(); return false" >                 
 			</form>
 			</nav>
 			<div id="reset" class="reset heading">
@@ -27,25 +27,33 @@
 	</header>
 	<section class="container-fluid">
 		<div class="row">
-			<div id="current" class="col-12 col-md-7">
-				<div id="city-name" class="row">
+			<div id="current" class="col-12 col-md-7 current">
+				<div class="row city-name">
+                <p id="city-name" ></p>
 				</div>
-				<div id="city-temp" class="row">
+				<div class="row city-temp">
+                <p id="city-temp"></p>
 				</div>
-				<div id="city-main" class="row">
+				<div class="row city-main">
+                <p id="city-main"></p>
 				</div>
-				<div id="city-date" class="row">
+				<div class="row city-date">
+                <p id="city-date"></p>
 				</div>
 			</div>
 			<div id="current-div" class="col-12 col-md-5">
 				<button id="extra-btn" class="btn btn-info">More data...</button>
                 <div id="map"></div>
-				<div id="current-extra"> </div>
+				<div id="current-extra"> 
+                    <p id="clouds"></p>
+                    <p id="humidity"></p>
+                    <p id="pressure"></p>
+                </div>
 			</div>
 		</div>
         <!-- If the city is not real ( status == 404) -->
         <div class="notReal">
-            <h1><span id="cityName"></span> is not a real city!<br> Click on the button to try again.</h1>
+            <h1><span id="cityName"></span> is not in our database!<br> <br>Click on the button in the upper left corner to try again.</h1>
         </div>		
 		<!-- Carousel with next days weather -->
 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

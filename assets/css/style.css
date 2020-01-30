@@ -23,8 +23,8 @@ body {
     padding: 0;
 }
 #search{
-    margin-top: 10%;
-    margin-bottom: 10%;
+    margin: 10% 0;
+    width: 275px;
 }
 .btn {
     margin: 10px;
@@ -65,29 +65,30 @@ body {
     background-color: rgba(255, 255, 255, 0.4);
 }
 
-#city-name > p {
+.city-name > p{
     margin: 20px auto;
     text-align: center;
     font-size:4em;
     font-weight: 700;
     letter-spacing: 2px
 }
-#city-temp > p {
+.city-temp > p{
     margin: 0 auto;
     text-align: center;
     font-size: 5em;
     color: red;
     font-weight: 600;
 }
-#city-main > p {
+.city-main > p{
     margin: 20px auto;
     text-align: center;
     font-size: 2.5em;
     color:rgb(0, 140, 255);
     letter-spacing: 10px;
     font-weight: 700;
+    text-transform: uppercase;
 }
-#city-date > p{
+.city-date > p{
     font-size: 2em;
     margin: 10px auto 40px;
     text-align: center;
