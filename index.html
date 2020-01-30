@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Weather 360°</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <script src="https://kit.fontawesome.com/41a908fb89.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
 	<script>(function(){emailjs.init("user_wwo3XzSnMgSAR5hgP5jJv");})();</script>
 </head>
-
 <body>
 	<header>
 		<h1 id="heading">Weather 360°</h1>
-			<nav class="navbar header">
-				<form class="form-inline" onsubmit="searchCity(); return false" >
-					<input class="form-control" id="search" type="text" placeholder="Search by city and press enter key" minlength="3" required aria-label="Search" onsubmit="searchCity(); return false" >                 
+		<nav class="navbar header">
+			<form class="form-inline" onsubmit="searchCity(); return false" >
+				<input class="form-control" id="search" type="text" placeholder="Search by city and press enter key" minlength="3" required aria-label="Search" onsubmit="searchCity(); return false" >                 
 			</form>
-			</nav>
-			<div id="reset" class="reset heading">
-				<button id="reload" class="btn btn-info">Try A Different City</button>
-			</div>
+		</nav>
+		<div id="reset" class="reset heading">
+			<button id="reload" class="btn btn-info">Try A Different City</button>
+		</div>
 	</header>
 	<section class="container-fluid">
+        <!-- Current city data and map -->
 		<div class="row">
 			<div id="current" class="col-12 col-md-7 current">
 				<div class="row city-name">
-                <p id="city-name" ></p>
+                    <!-- HTML validator shows empty heading but this takes data from the API -->
+                    <h2 id="city-name"></h2>
 				</div>
 				<div class="row city-temp">
-                <p id="city-temp"></p>
+                    <p id="city-temp"></p>
 				</div>
 				<div class="row city-main">
-                <p id="city-main"></p>
+                    <p id="city-main"></p>
 				</div>
 				<div class="row city-date">
-                <p id="city-date"></p>
+                    <p id="city-date"></p>
 				</div>
 			</div>
 			<div id="current-div" class="col-12 col-md-5">
@@ -56,14 +56,14 @@
 		</div>
         <!-- If the city is not real ( status == 404) -->
         <div class="notReal">
-            <h1><span id="cityName"></span> is not in our database!<br> <br>Click on the button in the upper left corner to try again.</h1>
+            <p><span id="cityName"></span> is not in our database! <br>Click on the button in the upper left corner to try again.</p>
         </div>		
 		<!-- Carousel with next days weather -->
 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 			<div id="carousel" class="carousel-inner">
 				<div class="carousel-item active next-day">
-					<div clas="first-slide">
-						<h1>Weather <br> for next days</h1>
+					<div class="first-slide">
+						<p>Weather <br> for next days</p>
 					</div>
 				</div>
 				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -75,6 +75,7 @@
 					<span class="sr-only">Next</span>
 				</a>
 			</div>
+		</div>
 	</section>
 	<footer>
         <div>
@@ -96,6 +97,7 @@
 			</ul>
 		</div>
 	</footer>
+    <!-- Contact form modal -->
     <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModal" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -115,6 +117,7 @@
 				</div>
 			</div>
 		</div>
+    </div>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABiksQrikxcUzI6QN0f2ZggAX4CwvdDhc" async defer>
 	</script>
 	<script src="https://code.jquery.com/jquery-3.4.1.js"
