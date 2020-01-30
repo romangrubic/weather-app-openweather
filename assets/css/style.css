@@ -47,6 +47,18 @@ body {
     font-size: 4em;
     
 }
+/* --- Not a real city --- */
+.notReal{
+    margin: 100px 10%;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 100px 0;
+    text-align: center;
+}
+#cityName{
+    font-size: 55px;
+    color: orangered;
+    letter-spacing: 2px;
+}
 
 /* --- City statistics - current --- */
 .current{
@@ -205,5 +217,8 @@ i:hover{
     }
     .new-day > h6 {
         font-size: 23px;
+    }
+    .notReal{
+        margin: 10% 0;
     }
 }

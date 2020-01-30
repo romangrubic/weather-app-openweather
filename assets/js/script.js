@@ -2,6 +2,7 @@ $(document).ready(function () {
     $("#reset").hide();
     $("#current-div").hide();
     $(".carousel").hide();
+    $(".notReal").hide();
 
 });
 
@@ -35,15 +36,24 @@ function pullDataByCity() {
 
     fetch(apiSearch)
         .then(response => { 
-            return response.json();
+            console.log(response)
+            return response.json();            
             })
         
         .then(data => {
             console.log(data);
+                if (data.cod == 404){
+                    console.log('"Its faaakeeee" - senator Vreenak')
+                    $(".notReal").show();
+                    $("#notReal").text("Not a real city!")
+                    $("#current-div").toggle();
+                    $("#carousel").toggle();
+                    $("#cityName").text(city);
+                }
+            
             const { name,
                 dt,
-                timezone,
-                message } = data;
+                timezone } = data;
             const { temp,
                 humidity,
                 pressure } = data.main;

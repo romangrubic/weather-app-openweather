@@ -15,7 +15,7 @@
 
 <body>
 	<header>
-		<h1 id="heading">Weather on Earth!</h1>
+		<h1 id="heading">Weather 360°</h1>
 			<nav class="navbar header">
 				<form class="form-inline" onsubmit="searchCity(); return false" >
 					<input class="form-control mr-sm-2" id="search" type="text" placeholder="Search by city" minlength="3" required aria-label="Search" onsubmit="searchCity(); return false" >                 
@@ -24,7 +24,6 @@
 			<div id="reset" class="reset heading">
 				<button id="reload" class="btn btn-info">Try A Different City</button>
 			</div>
-
 	</header>
 	<section class="container-fluid">
 		<div class="row">
@@ -42,16 +41,18 @@
 				<button id="extra-btn" class="btn btn-info">More data...</button>
                 <div id="map"></div>
 				<div id="current-extra"> </div>
-
 			</div>
 		</div>
-		<div id="nextday" class="row justify-content-around"></div>
-		<!-- Implement a carousel with next day -->
+        <!-- If the city is not real ( status == 404) -->
+        <div class="notReal">
+            <h1><span id="cityName"></span> is not a real city!<br> Click on the button to try again.</h1>
+        </div>		
+		<!-- Carousel with next days weather -->
 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 			<div id="carousel" class="carousel-inner">
 				<div class="carousel-item active new-day">
 					<div clas="first-slide">
-						<h1 id="notReal">Weather <br> for next days</h1>
+						<h1>Weather <br> for next days</h1>
 					</div>
 				</div>
 				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -97,7 +98,7 @@
 					<form id="contactForm" onsubmit="return sendMail(this);">
 						<input type="text" name="name" class="form-control" id="fullname" placeholder="Name" required/>
 						<input type="email" name="emailaddress" class="form-control" id="emailaddress" minlength="10" pattern=".+.com" placeholder="Email" required/>
-						<textarea rows="5" name="projectsummary" class="form-control" id="projectsummary" placeholder="Write you question or project idea and hit send!" required></textarea>
+						<textarea rows="5" name="projectsummary" class="form-control" id="projectsummary" placeholder="Write your question or project idea and click submit!" required></textarea>
 						<button form="contactForm" type="submit" id="submit" class="btn btn-outline-danger" >Submit</button>
 					</form>
 				</div>
