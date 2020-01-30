@@ -5,10 +5,12 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
+	<title>Weather 360°</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/41a908fb89.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
+	<script>(function(){emailjs.init("user_wwo3XzSnMgSAR5hgP5jJv");})();</script>
 </head>
 
 <body>
@@ -82,6 +84,25 @@
 			</ul>
 		</div>
 	</footer>
+    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModal" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title" id="contactModalheading">I'm looking for new projects!</h2>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+				</div>
+				<div class="modal-body">
+					<form id="contactForm" onsubmit="return sendMail(this);">
+						<input type="text" name="name" class="form-control" id="fullname" placeholder="Name" required/>
+						<input type="email" name="emailaddress" class="form-control" id="emailaddress" minlength="10" pattern=".+.com" placeholder="Email" required/>
+						<textarea rows="5" name="projectsummary" class="form-control" id="projectsummary" placeholder="Write you question or project idea and hit send!" required></textarea>
+						<button form="contactForm" type="submit" id="submit" class="btn btn-outline-danger" >Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABiksQrikxcUzI6QN0f2ZggAX4CwvdDhc" async defer>
 	</script>
 	<script src="https://code.jquery.com/jquery-3.4.1.js"
@@ -89,6 +110,7 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
 	</script>
+    <script src="assets/js/email.js"></script>
 	<script src="assets/js/script.js"></script>
 </body>
 
