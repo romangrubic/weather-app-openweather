@@ -36,7 +36,6 @@ $("#extra-btn").click(function () {
 function notReal() {
     console.log('"Its fake!" - senator Vreenak');
     $(".notReal").show();
-    $("#notReal").text("Not a real city!");
     $("#current").hide();
     $("#current-div").toggle();
     $("#carousel").toggle();

@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
 *{
     margin:0;
     box-sizing: border-box;
 }
 body { 
-  background: url('../images/sky.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    background: url('../images/sky.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 /* --- Header --- */
@@ -17,22 +20,22 @@ body {
 
 /* --- Navbar buttons --- */
 .navbar{
-    margin-top: 0;
+    margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
+    padding: 0; 
 }
 #search{
     margin: 10% 0;
-    width: 275px;
+    width: 315px;
 }
 .btn {
-    margin: 10px;
+    margin: 15px;
     width: 200px;
 }
 .btn-info{
-    background-color: rgba(123, 218, 250, 0.8);
+    background-color: rgba(0, 140, 255, 0.5);
 }
 #reload{
     font-weight: 700;
@@ -41,18 +44,19 @@ body {
 /* --- Heading --- */
 #heading{
     background-color: rgba(255, 255, 255, 0.4);
-    margin: 15% auto 0;
+    margin: 250px auto 0;
     text-align: center;
-    color: rgb(255, 0, 0, 0.7);
-    font-weight: 600;
+    color: rgb(255, 0, 0, 0.65);
+    font-weight: 700;
     font-size: 4.5em;
+    padding: 20px 0 0;
     
 }
 /* --- Not a real city --- */
 .notReal{
-    margin: 100px 10%;
+    margin: 150px 10%;
     background-color: rgba(255, 255, 255, 0.6);
-    padding: 100px 0;
+    padding: 50px 0;
     text-align: center;
     font-size: 38px;
     font-weight: 600;
@@ -68,7 +72,7 @@ body {
 .current{
     background-color: rgba(255, 255, 255, 0.4);
 }
-.city-name > h1{
+.city-name > h2{
     margin: 20px auto;
     text-align: center;
     font-size:4em;
@@ -76,9 +80,9 @@ body {
     letter-spacing: 2px
 }
 .city-temp > p{
-    margin: 0 auto;
+    margin: 20px auto;
     text-align: center;
-    font-size: 5em;
+    font-size: 6em;
     color: rgb(255, 0, 0, 0.7);
     font-weight: 600;
 }
@@ -104,7 +108,7 @@ body {
     text-align: center;
     font-size: 1.5em;
     font-weight: 600;
-    height: 455px
+    height: 495px
 }
 #extra-btn{
     margin: 60px 0 12px;
@@ -119,7 +123,7 @@ body {
 #map{
     margin: 30px auto 0;
     max-width: 500px;
-    height: 55%
+    height: 60%
 }
 
 /* --- Next day statistics --- */
@@ -213,6 +217,9 @@ i:hover{
 
 /* --- Media queries --- */
 @media only screen and (max-width: 768px) {
+    #heading {
+        margin-top: 150px;
+    }
     .carousel-item > div > h1 {
         padding: 70px 0;
         font-size: 35px;
@@ -225,7 +232,7 @@ i:hover{
         font-size: 23px;
     }
     .notReal{
-        margin: 5% 0;
+        margin: 10% 0 15%;
         font-size: 30px; 
         font-weight: 600;
         padding: 20px 0;
