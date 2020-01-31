@@ -34,7 +34,7 @@ body {
     margin: 15px;
     width: 200px;
 }
-.btn-info{
+.btn-primary{
     background-color: rgba(0, 140, 255, 0.65);
 }
 #reload{
@@ -82,14 +82,14 @@ body {
     letter-spacing: 2px
 }
 .city-temp > p{
-    margin: 20px auto;
+    margin:0 auto;
     text-align: center;
     font-size: 6em;
     color: rgb(255, 0, 0, 0.7);
     font-weight: 600;
 }
 .city-main > p{
-    margin: 20px auto;
+    margin:0 auto;
     text-align: center;
     font-size: 2.5em;
     color:rgb(0, 140, 255, 0.7);
@@ -99,9 +99,10 @@ body {
 }
 .city-date > p{
     font-size: 2em;
-    margin: 10px auto 40px;
+    margin: 10px auto 30px;
     text-align: center;
-    font-weight: 500;    
+    font-weight: 600;
+    letter-spacing: 1px;    
 }
 
 /* --- City statistics - extra data --- */
@@ -110,7 +111,7 @@ body {
     text-align: center;
     font-size: 1.5em;
     font-weight: 600;
-    height: 495px
+    height: 480px;
 }
 #extra-btn{
     margin: 60px 0 12px;

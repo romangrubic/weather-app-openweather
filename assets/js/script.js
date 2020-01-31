@@ -28,8 +28,8 @@ $("#reload").click(function () {
 
 // --- "More data" button toggles bettwen a map location and more data about weather for current day --- 
 $("#extra-btn").click(function () {
-    $("#current-extra").toggle();
-    $("#map").toggle();
+    setTimeout(function(){$("#current-extra").slideToggle(); }, 200);
+    setTimeout(function(){$("#map").slideToggle(); }, 200);
 });
 
 // --- If the city name is not in API database --- 
@@ -96,7 +96,7 @@ function pullDataByCity() {
                 var dateToString = offsetTime.toDateString();
                 var day = dateToString.slice(0, 3);
                 var number = dateToString.slice(4, 10);
-                $("#city-date").text(day + ", "  + number +  ", " + hours + ":00hrs");
+                document.getElementById("city-date").innerHTML = day + ", "  + number +  " <br> " + hours + ":00 hrs";
 
             // --- More data hidden behind map. Toggles on "More data" button ---
                 $("#clouds").text("Clouds - " + all + "%");
