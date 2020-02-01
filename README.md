@@ -6,8 +6,7 @@ Since the beginning of time, humans used to predict weather just by looking into
 Introducing new Weather 360°, web-site that shows weather around the globe! Look for current and future weather for any city on Earth (hope to include Lunar colonies and even Martian colonies 
 including Utopia Planitia in near future!). See the cities exact location on a map and even roam the city streets using Pegman in full-screen mode. Just like the simulations!
 
----
-### A live demo is hosted [here](https://romangrubic.github.io/weather-app-openweather/.)
+#### A live demo is hosted [here](https://romangrubic.github.io/weather-app-openweather/.)
 ![Weather 360° Demo](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/responsive.png "Weather 360° Demo")
 
 ---
@@ -73,8 +72,12 @@ contact modal.
 
 #### Further description of buttons, icons and elements used is in the next section (Features).
 
-### Skeleton
---- Add wireframes ---
+### Wireframes
+[Landing page](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/wireframe/landing-page.jpg)
+
+[Main page](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/wireframe/main-page.jpg)
+
+[Unknown city / Not in database](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/wireframe/unknown-city.jpg)
 
 ### Surface 
 Using only light colors and colors with opacity lowered, a background photo of sky with clouds,
@@ -127,34 +130,42 @@ positive and it will be a web-site which user will visit in future.
 ## Technologies used
 
 * HTML5 & CCS3: Essential languages used to build a websites foundations.
+ 
+    - https://en.wikipedia.org/wiki/HTML5
+    - https://en.wikipedia.org/wiki/Cascading_Style_Sheets
 * Bootstrap: An easy to use, responsive framework. Bootstrap was used to allow easy implementation of the overall responsivness and contact modal. Bootstrap's 
 grid system was also used for simplicity and efficiency.
-
+    
     - https://getbootstrap.com/
 * Font Awesome: A vast and free library of responsive icons. This library was used for the social link icons found in the footer.
-
+    
     - https://fontawesome.com/
 * Google fonts: Library of fonts. This library was used for the font across the page.
-
+   
     - https://fonts.google.com/
 * JavaScript and jQuery: These technologies were essential for the function of the web-site (interactivity with the user), and to allow Bootstap to display/hide buttons, map and modal.
-
+    
     - https://jquery.com/
 * EmailJS: Service that helps sending emails using client side technologies only. It only requires to connect EmailJS to one of the supported email services, 
 create an email template, and use their Javascript library to trigger an email. This was used for contact modal so that user's can get in contact with me. 
-
+    
     - https://www.emailjs.com/
 * OpenWeather API: Free (up to a certain point) weather API that has current weather for any geolocation in the world. It is used in this website as main API 
 because you need only city name in order to pull data from it.
-
+   
     - https://openweathermap.org/api
 * DarkSky API: Free weather API similar to Openweather but main difference is that it uses coordinates to pull data. It is used to present weather for future 
 days(the same option on OpenWeather has to be purchased) and is using coordinates pulled from OpenWeather API to pull data for searched city.
-
+   
     - https://darksky.net/dev
 * Google maps API: Maps API is used to show the location of the searched city if a user don't know it geographical location, user can open Gmaps fullscreen 
 and use the Street View and drag Pegman to look around. I have set the limit of calls that can be used per user.
+   
     - https://cloud.google.com/maps-platform
+* CORS-anywhere: This API enables cross-origin requests to anywhere.
+Needed in order to pull data from DarkSky API and bypass CORS issue.
+
+    - https://cors-anywhere.herokuapp.com/
     
 ---
 

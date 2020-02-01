@@ -75,16 +75,23 @@ function pullDataByCity() {
                     lon } = data.coord;
 
                 // --- Gmap API has to be here in order to pull lat and long. I have tried putting it in separate function but it wouldn't work ---
+                var cityLatLon = { lat: lat, lng: lon }
                 map = new google.maps.Map(document.getElementById('map'), {
-                    center: { lat: lat, lng: lon },
+                    center: cityLatLon,
                     zoom: 10
                 });
+                var marker = new google.maps.Marker({
+                    position: cityLatLon,
+                    map: map,
+                    title: city.toUpperCase()
+                });
+                marker.setMap(map);
 
                 // --- Current weather in city ---
                 $("#city-name").text(name + ", " + country);
                 $("#city-temp").text(Math.round(temp) + " °C");
                 $("#city-main").text(main);
-                    // --- Current time based on that city local time ---
+                // --- Current time based on that city local time ---
                 var nDate = new Date((dt + timezone) * 1000);
                 var hours = nDate.getHours();
                 var dateToString = nDate.toDateString();
@@ -97,7 +104,7 @@ function pullDataByCity() {
                 $("#humidity").text("Humidity - " + humidity + "%");
                 $("#pressure").text("Air pressure - " + pressure + " hPa");
                 $("#wind").text("Wind speed - " + speed + " m/s");
-                    // --- Sunrise and sunset based on that city local time ---
+                // --- Sunrise and sunset based on that city local time ---
                 var currSunRis = new Date((sunrise + timezone) * 1000);
                 var currSunRisH = currSunRis.getHours();
                 var currSunRisM = currSunRis.getMinutes();
