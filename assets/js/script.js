@@ -5,7 +5,6 @@ $(document).ready(function () {
     $(".carousel").hide();
     $(".notReal").hide();
     $("#current").hide();
-
 });
 
 // --- When user enters a city name and presses enter --- 
@@ -28,8 +27,8 @@ $("#reload").click(function () {
 
 // --- "More data" button toggles bettwen a map location and more data about weather for current day --- 
 $("#extra-btn").click(function () {
-    setTimeout(function(){$("#current-extra").slideToggle(); }, 200);
-    setTimeout(function(){$("#map").slideToggle(); }, 200);
+    $("#current-extra").slideToggle()
+    $("#map").slideToggle();
 });
 
 // --- If the city name is not in API database --- 
@@ -75,48 +74,42 @@ function pullDataByCity() {
                 const { lat,
                     lon } = data.coord;
 
-                    // --- Next line is used for calculating city local time in several different places in the code ---
-                let timezoneDiff = (timezone / 3600);
-
-                    // --- Gmap API has to be here in order to pull lat and long. I have tried putting it in separate function but it wouldn't work ---
+                // --- Gmap API has to be here in order to pull lat and long. I have tried putting it in separate function but it wouldn't work ---
                 map = new google.maps.Map(document.getElementById('map'), {
                     center: { lat: lat, lng: lon },
                     zoom: 10
                 });
 
-            // --- Current weather in city ---
+                // --- Current weather in city ---
                 $("#city-name").text(name + ", " + country);
                 $("#city-temp").text(Math.round(temp) + " °C");
                 $("#city-main").text(main);
                     // --- Current time based on that city local time ---
-                var nDate = new Date(dt * 1000);
-                var timeDiff = timezoneDiff * 60;
-                var offsetTime = new Date(nDate.getTime() + timeDiff * 60 * 1000);
-                var hours = offsetTime.getHours();
-                var dateToString = offsetTime.toDateString();
+                var nDate = new Date((dt + timezone) * 1000);
+                var hours = nDate.getHours();
+                var dateToString = nDate.toDateString();
                 var day = dateToString.slice(0, 3);
                 var number = dateToString.slice(4, 10);
-                document.getElementById("city-date").innerHTML = day + ", "  + number +  " <br> " + hours + ":00 hrs";
+                document.getElementById("city-date").innerHTML = day + ", " + number + " <br> " + hours + ":00 hrs";
 
-            // --- More data hidden behind map. Toggles on "More data" button ---
+                // --- More data hidden behind map. Toggles on "More data" button ---
                 $("#clouds").text("Clouds - " + all + "%");
                 $("#humidity").text("Humidity - " + humidity + "%");
                 $("#pressure").text("Air pressure - " + pressure + " hPa");
                 $("#wind").text("Wind speed - " + speed + " m/s");
                     // --- Sunrise and sunset based on that city local time ---
-                var currSunRis = new Date(sunrise * 1000);
-                var sunRisDiff = timezoneDiff * 60;
-                var realSunRisTime = new Date(currSunRis.getTime() + sunRisDiff * 60 * 1000);
-                var currSunRisH = realSunRisTime.getHours();
-                var currSunRisM = realSunRisTime.getMinutes();
+                var currSunRis = new Date((sunrise + timezone) * 1000);
+                var currSunRisH = currSunRis.getHours();
+                var currSunRisM = currSunRis.getMinutes();
+                if (currSunRisH < 10) { currSunRisH = "0" + currSunRisH };
+                if (currSunRisM < 10) { currSunRisM = "0" + currSunRisM };
                 $("#sunrise").text("Sunrise at - " + currSunRisH + ":" + currSunRisM + " hrs");
-                var currSunSet = new Date(sunset * 1000);
-                var sunSetDiff = timezoneDiff * 60;
-                var realSunSetTime = new Date(currSunSet.getTime() + sunSetDiff * 60 * 1000);
-                var currSunSetH = realSunSetTime.getHours();
-                var currSunSetM = realSunSetTime.getMinutes();
-                $("#sunset").text("Sunset at - " + currSunSetH + ":" + currSunSetM + " hrs");                
-                
+                var currSunSet = new Date((sunset + timezone) * 1000);
+                var currSunSetH = currSunSet.getHours();
+                var currSunSetM = currSunSet.getMinutes();
+                if (currSunSetM < 10) { currSunSetM = "0" + currSunSetM };
+                $("#sunset").text("Sunset at - " + currSunSetH + ":" + currSunSetM + " hrs");
+
                 // ---- Proxy used to access DarkSky API
                 const proxy = 'https://cors-anywhere.herokuapp.com/';
 
@@ -129,7 +122,6 @@ function pullDataByCity() {
                         return response.json();
                     })
                     .then(data => {
-
                         // --- Loop that takes the same data but for different next days ---
                         for (i = 1; i < 9; i++) {
                             const { summary,
@@ -137,7 +129,7 @@ function pullDataByCity() {
                                 temperatureLow,
                                 precipProbability,
                                 time } = data.daily.data[i];
-                            
+
                             // --- I used Javascript to create the elements in the carousel instead of using HTML and having to write each day every time ---
                             let nextDayCarousel = document.createElement("div");
                             nextDayCarousel.setAttribute('id', ["nextday" + i]);

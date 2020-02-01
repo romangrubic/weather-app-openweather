@@ -107,6 +107,7 @@ body {
 
 /* --- City statistics - extra data --- */
 #current-div{
+    padding: 0 25px;
     background-color: rgba(255, 255, 255, 0.4);
     text-align: center;
     font-size: 1.5em;
@@ -114,7 +115,7 @@ body {
     height: 480px;
 }
 #extra-btn{
-    margin: 60px 0 12px;
+    margin: 50px 0 35px;
 }
 #current-extra > p {
     margin: 0;
@@ -124,9 +125,8 @@ body {
 
 /* --- Map --- */
 #map{
-    margin: 30px auto 0;
-    max-width: 500px;
-    height: 60%
+    margin: 0 auto 0;
+    height: 70%;
 }
 
 /* --- Next day statistics --- */
@@ -222,6 +222,9 @@ i:hover{
 @media only screen and (max-width: 768px) {
     #heading {
         margin-top: 150px;
+    }
+    #current-div{
+        padding: 0 15px;
     }
     .carousel-item > div > h1 {
         padding: 70px 0;
