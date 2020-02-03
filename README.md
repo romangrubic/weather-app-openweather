@@ -7,13 +7,46 @@ Introducing new Weather 360°, web-site that shows weather around the globe! Loo
 including Utopia Planitia in near future!). See the cities exact location on a map and even roam the city streets using Pegman in full-screen mode. Just like the simulations!
 
 #### A live demo is hosted [here](https://romangrubic.github.io/weather-app-openweather/.)
-![Weather 360° Demo](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/responsive.png "Weather 360° Demo")
+![Weather 360° Demo](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/live-demo/responsive.png "Weather 360° Demo")
+
+---
+## Summary
+* [User Experience](#ux)
+    * [User Stories](#user-stories)
+    * [Five planes](#strategy)
+* [Features](#features)
+    * [Existing Features](#existing-features)
+    * [Future Features](#future-features)
+* [Technology used](#technology-used)
+* [Testing](#testing)
+* [Deployment](#deployment)
+* [Credits](#credits)
 
 ---
 ## UX
+### User Stories
+As a new user of the web-site, I would like to be able to:
+* easily search.
+
+![Search](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/user/search.png "Search")
+* search weather for my city.
+
+![Hometown](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/user/hometown.png "Hometown")
+* find out weather in destination of my choice while planning for future trips, holidays.
+
+![Destination](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/user/destination.png "Destination")
+* see the location of the city.
+
+![Map](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/user/map.png "Map")
+* if I typed incorrectly to see what I searched.
+
+![Wrong search](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/user/wrong-search.png "Wrong search")
+
+[Back to top](#summary)
+
 ### Strategy
 
-Weather 360° web-site purpose is to interact with the user and show them local weather in the searched city. It gives the information which is important to the user first, like name and country where the 
+Weather 360° web-site purpose is to interact with the user and show them weather in the searched city. It gives the information which is important to the user first, like name and country where the 
 city is located(to make sure they are looking at the right city), current temperature, description of weather, local date and time and a map with position on the city coordinates.
 
 ### Scope
@@ -73,11 +106,11 @@ contact modal.
 #### Further description of buttons, icons and elements used is in the next section (Features).
 
 ### Wireframes
-[Landing page](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/wireframe/landing-page.jpg)
+[Landing page](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/wireframe/landing-page.jpg)
 
-[Main page](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/wireframe/main-page.jpg)
+[Main page](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/wireframe/main-page.jpg)
 
-[Unknown city / Not in database](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/wireframe/unknown-city.jpg)
+[Unknown city / Not in database](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/wireframe/unknown-city.jpg)
 
 ### Surface 
 Using only light colors and colors with opacity lowered, a background photo of sky with clouds,
@@ -85,8 +118,12 @@ making all the elements stand out correctly and are simple to use, I'm creating 
 user can relax and is not forced to look at flashy pictures and bright colors. User's experience of Weather 360° is going to be 
 positive and it will be a web-site which user will visit in future.
 
+[Back to top](#summary)
+
 ---
 ## Features
+### Existing Features
+
 * Search button
 
   - Show the user instructions on how to search weather for a city. It is `required ` so user can not just press enter and search for empty space and requires 
@@ -125,9 +162,17 @@ positive and it will be a web-site which user will visit in future.
 
   - When user click on contact icon, it opens a new modal. User has to input all the requested information in order for e-mail to be sent. When the e-mail has been successfully
   sent, the text in the submit button will go from red outline color and `submit` to blue background color with `Message sent! Closing....` text and modal will close itself after 2seconds using `setTimeout` function.
+
+[Back to top](#summary)
+
+### Future Features
+  - I would like to add graph showing user specific weather data for future days(eg. Temperature fluctuation over 7days).
+
+[Back to top](#summary)
+
 ---
 
-## Technologies used
+## Technology used
 
 * HTML5 & CCS3: Essential languages used to build a websites foundations.
  
@@ -166,7 +211,9 @@ and use the Street View and drag Pegman to look around. I have set the limit of 
 Needed in order to pull data from DarkSky API and bypass CORS issue.
 
     - https://cors-anywhere.herokuapp.com/
-    
+
+[Back to top](#summary)
+
 ---
 
 ## Testing
@@ -200,22 +247,42 @@ CSS
 
 JS
  - code is validated through [JS Hint](https://jshint.com/).
+
+ [Back to top](#summary)
+
 ---
 
 ## Deployment
 This site is hosted using GitHub pages, deployed directly from the master branch. The deployed site will update automatically upon new commits to the master 
 branch. In order for the site to deploy correctly on GitHub pages, the landing page must be named `index.html`.
 
+Process to deploy on Github pages: 
+  - Login into your GitHub
+  - Go to you profile and click on repository you wish to deploy.
+  - In the row below title, on the right side, click on `Settings`.
+  - Scroll down to `Github pages` section and select master branch.
+  - Wait for a little while and then you can go on web-site by the link provided to you.
+
 To run locally, you can clone this repository directly into the editor of your choice by pasting `git clone https://github.com/romangrubic/weather-app-openweather.git` into your terminal. To cut ties with this GitHub repository, type `git remote rm origin` into the terminal.  
 
+Further help with cloning can be found on this GitHub Help [page](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
+
+[Back to top](#summary)
+
+
 ---
-## Content
-+ All content in the website was written by me.
----
-## Media
+## Credits
+### Content
++ All content, not pulled from the API's, was written by myself.
+
+### Media
 + Background photo used in this web-site was obtained from [Pexels](https://www.pexels.com/), a stock image library.
----
-## Acknowledgement
+
+### Acknowledgement
+* I would like to thank my mentor for help during project.
+* Videos on [CodeInstitute](https://codeinstitute.net/).
 * Big thanks to [W3 Schools](https://www.w3schools.com/) for all the content and clarification of different methods.
-* All images are taken from [Pexels.com](https://www.pexels.com/).
 * Special thanks to [CORS anywhere](https://cors-anywhere.herokuapp.com/) for my problem with CORS.
+
+#### This is for educational use.
+[Back to top](#summary)
