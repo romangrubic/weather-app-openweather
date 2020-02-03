@@ -3,8 +3,8 @@
 # Weather 360°
 Since the beginning of time, humans used to predict weather just by looking into skies. Sometimes they would be right, more often wrong. But, no more! 
 
-Introducing new Weather 360°, web-site that shows weather around the globe! Look for current and future weather for any city on Earth (hope to include Lunar colonies and even Martian colonies 
-including Utopia Planitia in near future!). See the cities exact location on a map and even roam the city streets using Pegman in full-screen mode. Just like the simulations!
+Introducing **Weather 360°**, web-site that shows weather around the globe! Look for **current and future weather for any city on Earth** (hope to include Lunar colonies and even Martian colonies 
+including Utopia Planitia in near future!). See the cities **location on a map** and even roam the city streets using Pegman in full-screen mode. **Just like the simulations**!
 
 #### A live demo is hosted [here](https://romangrubic.github.io/weather-app-openweather/.)
 ![Weather 360° Demo](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/live-demo/responsive.png "Weather 360° Demo")
@@ -26,21 +26,36 @@ including Utopia Planitia in near future!). See the cities exact location on a m
 ## UX
 ### User Stories
 As a new user of the web-site, I would like to be able to:
-* easily search.
 
-![Search](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/user/search.png "Search")
-* search weather for my city.
+* **easily search**
 
-![Hometown](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/user/hometown.png "Hometown")
-* find out weather in destination of my choice while planning for future trips, holidays.
+<p align="center">
+  <img src="https://github.com/romangrubic/weather-app-openweather/blob/master/assets/images/readme/user/search.png?raw=true" width="400" height="200" alt="Landing page">
+</p>
 
-![Destination](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/user/destination.png "Destination")
-* see the location of the city.
+* **search weather for my city**
 
-![Map](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/user/map.png "Map")
-* if I typed incorrectly to see what I searched.
+<p align="center">
+  <img src="https://github.com/romangrubic/weather-app-openweather/blob/master/assets/images/readme/user/hometown.png?raw=true" width="400" height="200" alt="Hometown">
+</p>
 
-![Wrong search](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/user/wrong-search.png "Wrong search")
+* **find out weather in destination of my choice while planning for future trips, holidays**
+
+<p align="center">
+  <img src="https://github.com/romangrubic/weather-app-openweather/blob/master/assets/images/readme/user/destination.png?raw=true" width="400" height="200" alt="Destination">
+</p>
+
+* **see the location of the city**
+
+<p align="center">
+  <img src="https://github.com/romangrubic/weather-app-openweather/blob/master/assets/images/readme/user/map.png?raw=true" width="400" height="200" alt="Map">
+</p>
+
+* **if I typed incorrectly to see what I searched**
+
+<p align="center">
+  <img src="https://github.com/romangrubic/weather-app-openweather/blob/master/assets/images/readme/user/wrong-search.png?raw=true" width="400" height="200" alt="Wrong search">
+</p>
 
 [Back to top](#summary)
 
@@ -106,11 +121,21 @@ contact modal.
 #### Further description of buttons, icons and elements used is in the next section (Features).
 
 ### Wireframes
-[Landing page](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/wireframe/landing-page.jpg)
 
-[Main page](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/wireframe/main-page.jpg)
+* **Landing page**
+<p align="center">
+  <img src="https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/wireframe/landing-page.jpg" width="400" height="200" alt="Landing page">
+</p>
 
-[Unknown city / Not in database](https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/wireframe/unknown-city.jpg)
+* **Main page**
+<p align="center">
+  <img src="https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/wireframe/main-page.jpg" width="400" height="200" alt="Main page">
+</p>
+
+* **Unknown city / Not in databse**
+<p align="center">
+  <img src="https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/wireframe/unknown-city.jpg" width="400" height="200" alt="Unknown city/Not in database">
+</p>
 
 ### Surface 
 Using only light colors and colors with opacity lowered, a background photo of sky with clouds,
@@ -167,6 +192,8 @@ positive and it will be a web-site which user will visit in future.
 
 ### Future Features
   - I would like to add graph showing user specific weather data for future days(eg. Temperature fluctuation over 7days).
+
+  - I would like to add an option to include name of the country because they are a lot of cities that have same name and it can be a nuisance.
 
 [Back to top](#summary)
 
