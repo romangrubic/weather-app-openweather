@@ -21,6 +21,24 @@ document.getElementById('search-form').addEventListener('submit', function (even
     $("#reset").removeClass("header");
 })
 
+// --- Country selector ---
+var select = document.getElementById("selectCountry"); 
+let xhr = new XMLHttpRequest();
+
+xhr.open("GET", `assets/json/country.json`);
+xhr.send();
+xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            setDataCountry(JSON.parse(this.responseText))
+            }
+        };
+
+// --- Deserializing country.json ---
+function setDataCountry(jsonData) {
+    data = jsonData;
+    console.log(data)
+}
+
 // --- When user press "Try a different city" button, page reloads ---
 $("#reload").click(function () {
     window.location.reload();
@@ -30,8 +48,9 @@ $("#reload").click(function () {
 function pullData() {
     let xhr = new XMLHttpRequest();
     let city = document.getElementById("search").value;
+    let country = document.getElementById("selectCountry").value;
 
-    xhr.open("GET", `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=bff58e85aa4f33dcceeb856d37837f05`);
+    xhr.open("GET", `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&APPID=bff58e85aa4f33dcceeb856d37837f05`);
     xhr.send();
     xhr.onreadystatechange = function () {
         // --- If the city is NOT in database.....
