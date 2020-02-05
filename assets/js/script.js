@@ -30,15 +30,26 @@ xhr.send();
 xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             setDataCountry(JSON.parse(this.responseText))
+            selectCountry()
             }
         };
 
 // --- Deserializing country.json ---
 function setDataCountry(jsonData) {
     data = jsonData;
-    console.log(data)
+    console.log("Country list populated.")
 }
 
+// --- Loop to create list of countries ---
+function selectCountry(){
+    for (i = 0; i < data.length; i++) {
+    let opt = data[i].Name.slice(0, 15) +", "+ data[i].Code;
+    let el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    select.appendChild(el)};
+};
+    
 // --- When user press "Try a different city" button, page reloads ---
 $("#reload").click(function () {
     window.location.reload();
@@ -47,16 +58,23 @@ $("#reload").click(function () {
 // --- Searching for a city in database and checking is it in or not ---
 function pullData() {
     let xhr = new XMLHttpRequest();
-    let city = document.getElementById("search").value;
+    let city = document.getElementById("search").value.toUpperCase();
     let country = document.getElementById("selectCountry").value;
+    let countryCode = country.slice(-2)
 
-    xhr.open("GET", `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&APPID=bff58e85aa4f33dcceeb856d37837f05`);
+    // --- If user did NOT SPECIFIED country ---
+    if(countryCode == " -")
+        {xhr.open("GET", `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=bff58e85aa4f33dcceeb856d37837f05`)}
+    
+    // --- If user SPECIFIED country ---
+    else{xhr.open("GET", `https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&units=metric&APPID=bff58e85aa4f33dcceeb856d37837f05`)};
+    
     xhr.send();
     xhr.onreadystatechange = function () {
         // --- If the city is NOT in database.....
         if (this.readyState == 4 && this.status == 404) {
             notInDatabase();
-            $("#cityName").text(city);
+            $("#cityName").text(city + ", " + country);
         }
         // --- otherwise, pull data and show it.
         else if (this.readyState == 4 && this.status == 200) {
