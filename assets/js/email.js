@@ -1,20 +1,54 @@
-function sendMail(contactForm) {
+// --- Immediately invoked function for email.js ---
+(function(){emailjs.init("user_wwo3XzSnMgSAR5hgP5jJv");})();
+
+// --- Sends e-mail to my e-mail adress
+document.getElementById('contactForm').addEventListener('submit', function (event) {
+    event.preventDefault();
     emailjs.send("gmail", "contact", {
         "from_name": contactForm.name.value,
         "from_email": contactForm.emailaddress.value,
         "project_request": contactForm.projectsummary.value
     })
-    .then(
-        function(response) {
-            console.log("SUCCESS", response);
-            $("#submit").text("Message sent! Closing....");
-            $("#submit").removeClass("btn-outline-danger");
-            $("#submit").addClass("btn-primary");
-            setTimeout(function(){$("#contactModal").modal("toggle"); }, 2000);            
-        },
-        function(error) {
-            console.log("FAILED", error);
-        }
-    );
-    return false;  
+        .then(
+            function (response) {
+                console.log("SUCCESS", response);
+                notification();
+                setTimeout(refresh, 2500);
+            },
+            function (error) {
+                console.log("FAILED", error);
+                failToSend();
+            }
+        );
+    return false;
+})
+
+// --- Waiting to process e-mail ---
+document.getElementById('submit').addEventListener('click', function(){
+    $("#submit").text("Submitting...");
+    $("#submit").removeClass("btn-danger");
+    $("#submit").addClass("btn-warning");
+})
+
+// --- Changes text in button to notify user that e-mail was sent successfuly (200) ---
+function notification() {
+    $("#submit").text("E-mail submitted! Closing...");
+    $("#submit").removeClass("btn-warning");
+    $("#submit").addClass("btn-success");
+    setTimeout(function () { $("#contactModal").modal("toggle"); }, 2000);
+}
+
+// --- Refreshes form ONLY ---
+function refresh() {
+    $("#submit").text("Submit");
+    $("#submit").removeClass("btn-success");
+    $("#submit").addClass("btn-danger");
+    document.getElementById("contactForm").reset();
+}
+
+// --- E-mail failed to sent (404) ---
+function failToSend(){
+    $("#submit").text("Failed to submit. Refresh page");
+     $("#submit").removeClass("btn-warning");
+    $("#submit").addClass("btn-secondary");
 }

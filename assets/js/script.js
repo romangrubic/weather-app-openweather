@@ -8,7 +8,8 @@ $(document).ready(function () {
 });
 
 // --- When user enters a city name and presses enter --- 
-function searchCity() {
+document.getElementById('search-form').addEventListener('submit', function (event) {
+    event.preventDefault();
     pullData();
     $(".form-inline").hide();
     $("#current-extra").hide();
@@ -18,7 +19,7 @@ function searchCity() {
     $(".carousel").show();
     $("#current").show();
     $("#reset").removeClass("header");
-}
+})
 
 // --- When user press "Try a different city" button, page reloads ---
 $("#reload").click(function () {
