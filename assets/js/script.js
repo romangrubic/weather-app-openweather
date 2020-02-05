@@ -41,8 +41,11 @@ function pullData() {
         // --- otherwise, pull data and show it.
         else if (this.readyState == 4 && this.status == 200) {
             setDataOpenWeather(JSON.parse(this.responseText));
+            console.log("Data pulled from OpenWeather API! Waiting for Google maps and DarkSky API.")
             currentWeather();
-            extraData();
+            initMap()
+            currentWeatherExtraData();
+            darkSkyAPI()
         }
     };
 }
@@ -83,8 +86,26 @@ $("#extra-btn").click(function () {
     $("#map").slideToggle();
 });
 
+// --- Location of the City on Google maps ---
+function initMap() {
+    const { lat,
+        lon } = data.coord;
+
+    let cityLatLon = { lat: lat, lng: lon };
+    let map = new google.maps.Map(document.getElementById('map'), {
+        center: cityLatLon,
+        zoom: 10
+    });
+    let marker = new google.maps.Marker({
+        position: cityLatLon,
+        map: map
+    });
+    marker.setMap(map);
+    console.log("Google maps initialized!")
+}
+
 // --- Extra data for current day ---
-function extraData() {
+function currentWeatherExtraData(){
     const { timezone } = data;
     const { humidity,
         pressure } = data.main;
@@ -109,4 +130,60 @@ function extraData() {
     let currSunSetM = currSunSet.getMinutes();
     if (currSunSetM < 10) { currSunSetM = "0" + currSunSetM }
     $("#sunset").text("Sunset at - " + currSunSetH + ":" + currSunSetM + " hrs");
+}
+
+// --- DarkSky API for future days weather carousel ---
+function darkSkyAPI() {
+    const { lat,
+        lon } = data.coord;
+
+    let xhr = new XMLHttpRequest();
+    const proxy = 'https://cors-anywhere.herokuapp.com/';
+    xhr.open("GET", `${proxy}https://api.darksky.net/forecast/81bd9bfc27e0a863848c0d003dda4468/${lat},${lon}?units=si`);
+    xhr.send();
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            setDataDarkSky(JSON.parse(this.responseText));
+            console.log("Data pulled from DarkSky API!")
+            carouselLoop();
+        }
+    };
+}
+
+// --- Deserializing DarkSky JSON ---
+function setDataDarkSky(jsonData) {
+    data = jsonData;
+}
+
+// --- Loop for creating carousel weather for future days ---
+function carouselLoop() {
+    for (i = 1; i < 9; i++) {
+        const { summary,
+            temperatureHigh,
+            temperatureLow,
+            precipProbability,
+            time } = data.daily.data[i];
+
+        /* --- I used Javascript to create the elements in 
+            the carousel instead of using HTML and having 
+            to write each day every time --- */
+        let nextDayCarousel = document.createElement("div");
+        nextDayCarousel.setAttribute('class', 'carousel-item next-day');
+        document.getElementById("carousel").appendChild(nextDayCarousel);
+        let nextDayDate = document.createElement("h6");
+        let date = new Date(time * 1000).toDateString();
+        nextDayDate.innerHTML = date.slice(0, 3) + ", " + date.slice(4, 10);
+        nextDayCarousel.appendChild(nextDayDate);
+        let h5 = document.createElement("h5");
+        h5.innerHTML = summary;
+        nextDayCarousel.appendChild(h5);
+        let par = document.createElement("p");
+        par.setAttribute('class', 'next-temp');
+        par.innerHTML = " Temperature <br> Max: " + Math.round(temperatureHigh) + "  °C <br> Min: " + Math.round(temperatureLow) + " °C";
+        nextDayCarousel.appendChild(par);
+        let parPrecipitation = document.createElement("p");
+        parPrecipitation.setAttribute('class', 'next-precip');
+        parPrecipitation.innerHTML = "Rain: " + Math.round(precipProbability * 100) + " %";
+        nextDayCarousel.appendChild(parPrecipitation);
+    }
 }
