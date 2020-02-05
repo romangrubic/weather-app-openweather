@@ -254,8 +254,21 @@ In addition, if a user writes incorrect name of the city or city does not exist 
 All links will open in a new tab using `target="_blank"`. All links have been manually tested to ensure that they are pointing to the correct destination.
 
 If you try to submit the contact form with an invalid email address, there will be an error noting the invalid email address. Furthermore, the `required` attribute is added to the 'name,' 'email,' 
-and 'message' fields, so if those fields are not filled in, the form will not submit. If all field are valid, e-mail will be sent and modal will close itself. If an user is interested in contacting me,
- they will have to fill out all fields in order for the form to go through.
+and 'message' fields, so if those fields are not filled in, the form will not submit. If all field are valid, e-mail will be sent and modal will close itself. If an user is interested in contacting, they will have to fill out all fields in order for the form to go through.
+
+When HTML code is run through a HTML validator such as [W3 validator](https://validator.w3.org/), it will show 
+a warning of `empty heading`. This heading will be populated by JavaScript file once it is loaded.
+
+<p align="center">
+  <img src="https://github.com/romangrubic/weather-app-openweather/blob/master/assets/images/readme/testing/warning.png?raw=true" width="300" height="80" alt="HTML Validator - warning">
+</p>
+
+When data is pulled from DarkSky API, console is reporting error as shown on picture below. It does not affect web-site functionality 
+as **that** data is **actually** successfuly pulled from DarkSky API. I tried removing that data but it would just go to next data that is pulled.
+
+<p align="center">
+  <img src="https://github.com/romangrubic/weather-app-openweather/blob/master/assets/images/readme/testing/destructure-property.png?raw=true" width="500" height="70" alt="Console error">
+</p>
 
 Additional manual testing was done to ensure:
 * The web-site runs as intended.
