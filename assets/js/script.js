@@ -14,6 +14,7 @@ document.getElementById('search-form').addEventListener('submit', function (even
     $(".form-inline").hide();
     $("#current-extra").hide();
     $("#heading").hide();
+    $(".first-slide").hide();
     $("#reset").show();
     $("#current-div").show();
     $(".carousel").show();
@@ -22,7 +23,7 @@ document.getElementById('search-form').addEventListener('submit', function (even
 })
 
 // --- Country selector ---
-var select = document.getElementById("selectCountry"); 
+var countryList = document.getElementById("selectCountry"); 
 let xhr = new XMLHttpRequest();
 
 xhr.open("GET", `assets/json/country.json`);
@@ -37,17 +38,16 @@ xhr.onreadystatechange = function () {
 // --- Deserializing country.json ---
 function setDataCountry(jsonData) {
     data = jsonData;
-    console.log("Country list populated.")
 }
 
 // --- Loop to create list of countries ---
 function selectCountry(){
     for (i = 0; i < data.length; i++) {
-    let opt = data[i].Name.slice(0, 15) +", "+ data[i].Code;
-    let el = document.createElement("option");
-    el.textContent = opt;
-    el.value = opt;
-    select.appendChild(el)};
+    let option = data[i].Name.slice(0, 15) +", "+ data[i].Code;
+    let list = document.createElement("option");
+    list.textContent = option;
+    list.value = option;
+    countryList.appendChild(list)};
 };
     
 // --- When user press "Try a different city" button, page reloads ---
@@ -79,7 +79,6 @@ function pullData() {
         // --- otherwise, pull data and show it.
         else if (this.readyState == 4 && this.status == 200) {
             setDataOpenWeather(JSON.parse(this.responseText));
-            console.log("Data pulled from OpenWeather API! Waiting for Google maps and DarkSky API.")
             currentWeather();
             initMap()
             currentWeatherExtraData();
@@ -139,7 +138,6 @@ function initMap() {
         map: map
     });
     marker.setMap(map);
-    console.log("Google maps initialized!")
 }
 
 // --- Extra data for current day ---
@@ -182,7 +180,8 @@ function darkSkyAPI() {
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             setDataDarkSky(JSON.parse(this.responseText));
-            console.log("Data pulled from DarkSky API!")
+            $("#loader").toggleClass("hide-loader");
+            $(".first-slide").show()
             carouselLoop();
         }
     };
