@@ -11,6 +11,7 @@ including Utopia Planitia in near future!). See the cities **location on a map**
 
 ---
 ## Summary
+* [Project Background](#project-background)
 * [User Experience](#ux)
     * [User Stories](#user-stories)
     * [Five planes](#strategy)
@@ -23,6 +24,27 @@ including Utopia Planitia in near future!). See the cities **location on a map**
 * [Credits](#credits)
 
 ---
+## Project Background
+
+This is made with collaboration between three different API's ([OpenWeather API](https://openweathermap.org/api), [DarkSky API](https://darksky.net/dev) and [Google maps API](https://cloud.google.com/maps-platform)) and a proxy.
+My choice in deciding which API's to use was mainly in their simplicity. I started this project using DarkSky API.
+In order to make the DarkSky API to work, I had to use a proxy to bypass CORS problem. I googled how to bypass cors and
+found this nice proxy [CORS anywhere](https://cors-anywhere.herokuapp.com/) solution, which is described as an API that enables cross-origin 
+requests to anywhere. After that problem, I found out that DarkSky API can only locate a city based on it's
+coordinates, which restricted it and made complicated for user to use (it is simpler to type city name instead of latitude and longtitude). 
+This is when I found about OpenWeather API. This API uses only city name to search it's database of weather information but 
+has restricted access to some information and in order to get same amount of data as in DarkSky API, I would need to pay. So, I faced dilemma about 
+which one to use and finally decided to combine this two API's and make them work together in order to give 
+the best user experience. I took from OpenWeather API it's capability to sort through database easily just 
+by typing city name. Once the user types city name and selects country (country selection is optional), it feeds DarkSky API with coordinates of the city and in that way 
+I can access more information that I thought would be desirable for user to see. Also, in same way OpenWeather API feeds coordinates 
+into Google maps API to show the user exact location of the searched city. User can use the Google maps in full-screen mode and also 
+can go into StreetView mode but each user has a certain amount of calls to Google maps and once he reaches the limit, 
+has to wait for it to reset.
+
+All three API's and a proxy, work together to give the user as best experience and as intuitive design as they can.
+
+[Back to top](#summary)
 ## UX
 ### User Stories
 As a new user of the web-site, I would like to be able to:
@@ -66,35 +88,25 @@ city is located(to make sure they are looking at the right city), current temper
 
 ### Scope
 
-In designing this page, I wanted for the user to have a positive experience. This website is simple in design, user just 
-has to type in a city and everything else will be done for him. 
+In designing this page, I wanted for the user to have a positive experience and for the web-site to be simple to use. User just 
+has to type in a city, select country (optional) and everything else will be done for him. So the features i would like to have in the project are 
+a search bar with country selector and an input field for the city, google maps showing the location of the city,
+and weather being show for current day and for several future days. For future features, I would like to add 
+a graph showing weather data for different options (temperature, humidity, wind speed etc.) throughout next seven days using 
+D3.js. 
 
-This is made with collaboration between three different API's ([OpenWeather API](https://openweathermap.org/api), [DarkSky API](https://darksky.net/dev) and [Google maps API](https://cloud.google.com/maps-platform)) and a proxy.
-My choice in deciding which API's to use was mainly in their simplicity. I started this project using DarkSky API.
-In order to make the DarkSky API to work, I had to use a proxy to bypass CORS problem. I googled how to bypass cors and
-found this nice proxy [CORS anywhere](https://cors-anywhere.herokuapp.com/) solution, which is described as an API that enables cross-origin 
-requests to anywhere. After that problem, I found out that DarkSky API can only locate a city based on it's
-coordinates, which restricted it and made complicated for user to use (it is simpler to type city name instead of latitude and longtitude). 
-This is when I found about OpenWeather API. This API uses only city name to search it's database of weather information but 
-has restricted access to some information and in order to get same amount of data as in DarkSky API, I would need to pay. So, I faced dilemma about 
-which one to use and finally decided to combine this two API's and make them work together in order to give 
-the best user experience. I took from OpenWeather API it's capability to sort through database easily just 
-by typing city name. Once the user types city name, it feeds DarkSky API with coordinates of the city and in that way 
-I can access more information that I thought would be desirable for user to see. Also, in same way OpenWeather API feeds coordinates 
-into Google maps API to show the user exact location of the searched city. User can use the Google maps in full-screen mode and also 
-can go into StreetView mode but each user has a certain amount of calls to Google maps and once he reaches the limit, 
-has to wait for it to reset.
 
-All three API's and a proxy, work together to give the user as best experience and as intuitive design as they can.
 
 ### Structure
 
 When the user arrives on site, first thing to see will be calming background photo of sky with
-clouds and cornfield. In the same time user will see the name of the website with an input field,
-instructing with the placeholder text to write in city name and press enter key. 
+clouds and cornfield. In the same time user will see the name of the website, country list selector that says `optional` 
+and an input field,
+instructing the user with placeholder text to write in city name and press enter key. 
 
-Once user enters the city name and press enter,
-page will pull data from weather API's and Google map API. The page itself is divided into two sections:
+Once user selects country (optional), enters the city name and presses enter,
+page will pull data from weather API's and Google map API. Until web-site pulls that data from the API's, 
+loaders will instruct the user that data is in process of being pulled. Once the data is pulled, loaders will hide. The page itself is divided into two sections:
  - First section is showing the user current data for the city (name, country, temperature, summary, local date and time) 
 on left side of the section and on the right side of the section, user can see on google maps
 the exact position of the city and can interact with it (fullscreen size, StreetView) Furthermore,

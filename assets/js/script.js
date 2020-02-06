@@ -72,11 +72,13 @@ function pullData() {
         // --- If the city is NOT in database.....
         if (this.readyState == 4 && this.status == 404) {
             notInDatabase();
+
             // --- If the user searched for city but didn't select country ---
             if(country.slice(-2) == " -"){
-            $("#cityName").text('"' +city + '"')}
+            $("#cityName").text('"' + city + '"')}
+            
             // --- If the user selected country ---
-            else {$("#cityName").text('"' + city + " , " + country.slice(0, -4)+ '"')};
+            else {$("#cityName").text('"' + city + ", " + country.slice(0, -4)+ '"')};
         }
         // --- otherwise, pull data and show it.
         else if (this.readyState == 4 && this.status == 200) {
