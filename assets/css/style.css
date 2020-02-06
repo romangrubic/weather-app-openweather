@@ -20,15 +20,18 @@ body {
 
 /* --- Navbar buttons --- */
 .navbar{
-    margin: 0;
+    margin: 0px auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0; 
+    padding: 10px 0 35px; 
 }
 #search{
-    margin: 10% 0;
+    margin: 15px 0;
     width: 315px;
+}
+#search-form{
+    justify-content: center;
 }
 .btn {
     margin: 15px;
@@ -42,13 +45,24 @@ body {
     letter-spacing: 2px;
     font-weight: 700;
 }
+.form-inline{
+    margin: 0;
+}
+
+/* --- Country select button ---*/
+#selectCountry{
+    text-align: right;
+    font-size: 19px;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255);
+}
 
 /* --- Heading --- */
 #heading{
     background-color: rgba(255, 255, 255, 0.4);
     margin: 250px auto 0;
     text-align: center;
-    color: rgb(255, 0, 0, 0.65);
+    color: rgb(255, 0, 0, 0.75);
     font-weight: 700;
     font-size: 4.5em;
     padding: 20px 0 0;
@@ -66,7 +80,7 @@ body {
 }
 #cityName{
     font-size: 55px;
-    color: orangered;
+    color: rgb(255, 69, 0, 0.85);
     letter-spacing: 2px;
 }
 
@@ -107,7 +121,7 @@ body {
 
 /* --- City statistics - extra data --- */
 #current-div{
-    padding: 0 25px;
+    padding: 0 15px 0 0;
     background-color: rgba(255, 255, 255, 0.4);
     text-align: center;
     font-size: 1.5em;
@@ -174,7 +188,7 @@ body {
 }
 
 /* --- Loader --- */
- #loader {
+ #loader-carousel {
     border: 25px solid rgb(255, 255, 255); 
     border-top: 25px solid rgb(0, 140, 255, 0.6); 
     border-bottom: 25px solid rgb(0, 140, 255, 0.6);
@@ -238,10 +252,10 @@ i:hover{
 /* --- Media queries --- */
 @media only screen and (max-width: 768px) {
     #heading {
-        margin-top: 150px;
+        margin-top: 32%;
     }
     #current-div{
-        padding: 0 15px;
+        padding: 0 5%;
     }
     .carousel-item > div > h1 {
         padding: 70px 0;

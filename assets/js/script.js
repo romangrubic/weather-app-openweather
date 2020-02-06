@@ -11,8 +11,8 @@ $(document).ready(function () {
 document.getElementById('search-form').addEventListener('submit', function (event) {
     event.preventDefault();
     pullData();
-    $(".form-inline").hide();
     $("#current-extra").hide();
+    $(".navbar").hide();
     $("#heading").hide();
     $(".first-slide").hide();
     $("#reset").show();
@@ -74,7 +74,11 @@ function pullData() {
         // --- If the city is NOT in database.....
         if (this.readyState == 4 && this.status == 404) {
             notInDatabase();
-            $("#cityName").text(city + ", " + country);
+            // --- If the user searched for city but didn't select country ---
+            if(country.slice(-2) == " -"){
+            $("#cityName").text('"' +city + '"')}
+            // --- If the user selected country ---
+            else {$("#cityName").text('"' + city + " , " + country.slice(0, -4)+ '"')};
         }
         // --- otherwise, pull data and show it.
         else if (this.readyState == 4 && this.status == 200) {
@@ -180,7 +184,7 @@ function darkSkyAPI() {
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             setDataDarkSky(JSON.parse(this.responseText));
-            $("#loader").toggleClass("hide-loader");
+            $("#loader-carousel").toggleClass("hide-loader");
             $(".first-slide").show()
             carouselLoop();
         }

@@ -18,12 +18,11 @@
 	<header>
 		<h1 id="heading">Weather 360°</h1>
 		<nav class="navbar header">
-			<form id="search-form" class="form-inline">
-                <select id="selectCountry">
-                    <option>- Specify or not -</option>
+			<form id="search-form" class="row form-inline">
+                <select id="selectCountry" class="btn">
+                    <option>- Optional -</option>
                 </select>
 				<input class="form-control" id="search" type="text" placeholder="Write in a city name and press enter key" minlength="2" required aria-label="Search">
-				
 			</form>
 		</nav>
 		<div id="reset" class="reset heading">
@@ -71,7 +70,7 @@
 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 			<div id="carousel" class="carousel-inner">
 				<div class="carousel-item active next-day">
-                    <div id="loader">
+                    <div id="loader-carousel">
 					</div>
 					<div class="first-slide">
 						<p>Weather <br> for next days</p>
