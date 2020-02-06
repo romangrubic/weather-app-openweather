@@ -1,10 +1,9 @@
 // --- Landing page ---
 $(document).ready(function () {
     $("#reset").hide();
-    $("#current-div").hide();
+    $("#current-weather").hide()
     $(".carousel").hide();
     $(".notReal").hide();
-    $("#current").hide();
 });
 
 // --- When user enters a city name and presses enter --- 
@@ -15,10 +14,9 @@ document.getElementById('search-form').addEventListener('submit', function (even
     $(".navbar").hide();
     $("#heading").hide();
     $(".first-slide").hide();
+    $("#current-weather").show()
     $("#reset").show();
-    $("#current-div").show();
     $(".carousel").show();
-    $("#current").show();
     $("#reset").removeClass("header");
 })
 
@@ -93,9 +91,8 @@ function pullData() {
 
 // --- If the city name is NOT in database --- 
 function notInDatabase() {
+    $("#current-weather").hide()
     $(".notReal").show();
-    $("#current").hide();
-    $("#current-div").toggle();
     $("#carousel").toggle();
 }
 
@@ -106,6 +103,7 @@ function setDataOpenWeather(jsonData) {
 
 // --- Current weather in the city---
 function currentWeather() {
+    $("#loader-current").toggleClass("hide-loader");
     const { name,
         dt,
         timezone } = data;
@@ -129,6 +127,7 @@ $("#extra-btn").click(function () {
 
 // --- Location of the City on Google maps ---
 function initMap() {
+    $("#loader-map").toggleClass("hide-loader");
     const { lat,
         lon } = data.coord;
 

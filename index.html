@@ -31,7 +31,9 @@
 	</header>
 	<section class="container-fluid">
 		<!-- Current city data -->
-		<div class="row">
+		<div id="current-weather" class="row">
+            <div id="loader-current" class="loader-current">
+			</div>
 			<div id="current" class="col-12 col-md-7 current">
 				<div class="row city-name">
 					<!-- HTML validator shows empty heading but this takes data from the API -->
@@ -50,6 +52,8 @@
 			<!-- Button that toggles between Google maps and extra data for current day -->
 			<div id="current-div" class="col-12 col-md-5">
 				<button id="extra-btn" class="btn btn-primary">More data...</button>
+                <div id="loader-map" class="loader-map">
+					</div>
 				<div id="map"></div>
 				<div id="current-extra">
 					<p id="clouds"></p>
@@ -70,7 +74,7 @@
 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 			<div id="carousel" class="carousel-inner">
 				<div class="carousel-item active next-day">
-                    <div id="loader-carousel">
+                    <div id="loader-carousel" class="loader-carousel">
 					</div>
 					<div class="first-slide">
 						<p>Weather <br> for next days</p>

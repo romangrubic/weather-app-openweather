@@ -187,8 +187,8 @@ body {
     background-color: rgb(0, 140, 255, 0.7);
 }
 
-/* --- Loader --- */
- #loader-carousel {
+/* --- Loaders --- */
+ .loader-carousel, .loader-map, .loader-current {
     border: 25px solid rgb(255, 255, 255); 
     border-top: 25px solid rgb(0, 140, 255, 0.6); 
     border-bottom: 25px solid rgb(0, 140, 255, 0.6);
