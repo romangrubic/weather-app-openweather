@@ -161,10 +161,15 @@ positive and it will be a web-site which user will visit in future.
 ## Features
 ### Existing Features
 
-* Search button
+* Country selector
+  - Shows list of current countries and territories (at date 05/02/2020) and allows user to specify location of the city. 
+  For instance, if user types "Dublin", it will show "Dublin, US", but if user specify "Ireland, IE" and types Dublin, it will show Dublin, Ireland.
+  Country selection is optional and not required in case the user doesn't know the name of the country in which city is located.
+
+* Search input
 
   - Show the user instructions on how to search weather for a city. It is `required ` so user can not just press enter and search for empty space and requires 
-  minimum of 2 characters to be inputed.
+  minimum of 3 characters to be inputed.
 
 * City not found
 
@@ -181,6 +186,12 @@ positive and it will be a web-site which user will visit in future.
 
     - This button is used to toggle between google map showing the location of the searched city and additional statistics about the weather in the searched city 
 
+* Loaders
+
+  - I have put loaders when data is being pulled from API's because during testing, I noticed that 
+  sometimes (less than 15% of the tries) it can take up to 10 seconds for data to be pulled. Users are 
+  accustomed to see loaders and will be able to understand that data is in process of being pulled.
+
 * Google map
 
   - Google maps API is used to show the exact location of the searched city in case user want to see it. User can go fullscreen mode and can use StreetView with Pegman.
@@ -192,20 +203,20 @@ positive and it will be a web-site which user will visit in future.
 
 * Social icons
 
-  - In the footer are three social icons with links, one leading to my GitHub page, one for my LinkedIN profile (both of them open in a new tab because of 
+  - In the footer are three social icons with links, one leading to my GitHub page, one for my LinkedIn profile (both of them open in a new tab because of 
   `target="_blank"` attribute) and last one opens a contact modal from which user can contact me.
 
 * Contact modal
 
-  - When user click on contact icon, it opens a new modal. User has to input all the requested information in order for e-mail to be sent. When the e-mail has been successfully
-  sent, the text in the submit button will go from red outline color and `submit` to blue background color with `Message sent! Closing....` text and modal will close itself after 2seconds using `setTimeout` function.
+  - When user click on contact icon, it opens a new modal. User has to input all the requested information in order for e-mail to be sent. When the e-mail has been submitted, 
+  the text in the submit button will go from red background color and `Submit` to yellow background color with `Submitting...` text and then if it was successfuly sent (status=200), it will go green background color and `E-mail submitted! Closing...` and modal will close itself after 2seconds using `setTimeout` function. 
+  If it was unsuccessful (status=404), it will turn gray background color with `Failed to submit. Refresh page` text.
 
 [Back to top](#summary)
 
 ### Future Features
-  - I would like to add graph showing user specific weather data for future days(eg. Temperature fluctuation over 7days).
-
-  - I would like to add an option to include name of the country because they are a lot of cities that have same name and it can be a nuisance.
+  - I would like to add graph showing weather data for different 
+  options (temperature, humidity, wind speed etc.) throughout next seven days using D3.js or similar. 
 
 [Back to top](#summary)
 
@@ -259,9 +270,12 @@ Needed in order to pull data from DarkSky API and bypass CORS issue.
 This site was was tested on multiple browsers (Google Chrome, Mozzila Firefox and Opera), multiple mobile devices (Samsung Galaxy, Huawei, Sony) and tablet device(Samsung Galaxy Tab) and it shown 
 responsivness and compatibility.
 
-Search bar will only search if user wrote something in it because of `required ` attribute. Furthermore, it will ask the user for a minimum of 2 characters because of the `minlength` attribute. 
+Search bar will only search if user wrote something in it because of `required ` attribute. Furthermore, it will ask the user for a minimum of 3 characters because of the `minlength` attribute. 
 In addition, if a user writes incorrect name of the city or city does not exist in the OpenWeather API database, it will show the user the city name that was searched with a text that it is not
  in database and ask him to try again.
+
+In case user types three or more times spacebar character in search input field and presses enter, 
+it will show him that "`Empty space` is not in our database" and instruct him to try again.
 
 All links will open in a new tab using `target="_blank"`. All links have been manually tested to ensure that they are pointing to the correct destination.
 
@@ -331,10 +345,12 @@ Further help with cloning can be found on this GitHub Help [page](https://help.g
 + Background photo used in this web-site was obtained from [Pexels](https://www.pexels.com/), a stock image library.
 
 ### Acknowledgement
-* I would like to thank my mentor for help during project.
-* Videos on [CodeInstitute](https://codeinstitute.net/).
+* I would like to thank my mentor for help during project and great ideas.
+* Videos on [CodeInstitute](https://codeinstitute.net/) about JSON.
 * Big thanks to [W3 Schools](https://www.w3schools.com/) for all the content and clarification of different methods.
+* Thanks to [OpenWeather API](https://openweathermap.org/api), [DarkSky API](https://darksky.net/dev) and [Google maps API](https://cloud.google.com/maps-platform).
 * Special thanks to [CORS anywhere](https://cors-anywhere.herokuapp.com/) for my problem with CORS.
+* Country list JSON file was found at [DataHub.io](https://datahub.io/core/country-list).
 
 #### This is for educational use.
 [Back to top](#summary)

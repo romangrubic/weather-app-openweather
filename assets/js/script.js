@@ -57,6 +57,7 @@ $("#reload").click(function () {
 function pullData() {
     let xhr = new XMLHttpRequest();
     let city = document.getElementById("search").value.toUpperCase();
+    if (city[2] == " "){ city = "Empty space"}
     let country = document.getElementById("selectCountry").value;
     let countryCode = country.slice(-2)
 
@@ -90,7 +91,6 @@ function pullData() {
         }
     };
 }
-
 // --- If the city name is NOT in database --- 
 function notInDatabase() {
     $("#current-weather").hide()
