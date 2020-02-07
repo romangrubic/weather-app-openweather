@@ -10,13 +10,11 @@ document.getElementById('contactForm').addEventListener('submit', function (even
         "project_request": contactForm.projectsummary.value
     })
         .then(
-            function (response) {
-                console.log("SUCCESS", response);
+            function success() {
                 notification();
                 setTimeout(refresh, 2500);
             },
-            function (error) {
-                console.log("FAILED", error);
+            function failure() {
                 failToSend();
             }
         );

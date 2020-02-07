@@ -57,7 +57,7 @@ $("#reload").click(function () {
 function pullData() {
     let xhr = new XMLHttpRequest();
     let city = document.getElementById("search").value.toUpperCase();
-    if (city[2] == " "){ city = "Empty space"}
+    if (city[2] == " "){ city = "(blank space)" }
     let country = document.getElementById("selectCountry").value;
     let countryCode = country.slice(-2)
 
@@ -199,7 +199,7 @@ function setDataDarkSky(jsonData) {
 
 // --- Loop for creating carousel weather for future days ---
 function carouselLoop() {
-    for (i = 1; i < 9; i++) {
+    for (i = 1; i < data.daily.data.length; i++) {
         const { summary,
             temperatureHigh,
             temperatureLow,

@@ -50,31 +50,33 @@ All three API's and a proxy, work together to give the user as best experience a
 As a new user of the web-site, I would like to be able to:
 
 * **easily search**
+  - search is done just by inputing a city name and pressing "enter" key. 
 
 <p align="center">
   <img src="https://github.com/romangrubic/weather-app-openweather/blob/master/assets/images/readme/user/search.png?raw=true" width="400" height="200" alt="Landing page">
 </p>
 
 * **search weather for my city**
+  - user can specify country to narrow the search for his city in case there is another city with same name. For example Tralee, Ireland instead of Tralee, US. 
 
 <p align="center">
   <img src="https://github.com/romangrubic/weather-app-openweather/blob/master/assets/images/readme/user/hometown.png?raw=true" width="400" height="200" alt="Hometown">
 </p>
 
 * **find out weather in destination of my choice while planning for future trips, holidays**
-
+  - user can look at any location on world and see weather for next seven days in order to plan holidays.
 <p align="center">
   <img src="https://github.com/romangrubic/weather-app-openweather/blob/master/assets/images/readme/user/destination.png?raw=true" width="400" height="200" alt="Destination">
 </p>
 
 * **see the location of the city**
-
+  - location of the city is visible on map and user can even go full-screen and walk the city roads with Pegman. 
 <p align="center">
   <img src="https://github.com/romangrubic/weather-app-openweather/blob/master/assets/images/readme/user/map.png?raw=true" width="400" height="200" alt="Map">
 </p>
 
 * **if I typed incorrectly to see what I searched**
-
+  - user can see the mistake and correct error on next search.
 <p align="center">
   <img src="https://github.com/romangrubic/weather-app-openweather/blob/master/assets/images/readme/user/wrong-search.png?raw=true" width="400" height="200" alt="Wrong search">
 </p>
@@ -135,16 +137,19 @@ contact modal.
 ### Wireframes
 
 * **Landing page**
+  - Initial idea was that landing page contain only heading, search bar input and non-intrusive background
 <p align="center">
   <img src="https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/wireframe/landing-page.jpg" width="400" height="200" alt="Landing page">
 </p>
 
 * **Main page**
+  - Upon search, a page should load with current weather, map location that switches with more specific data and a carousel with weather for next seven days.
 <p align="center">
   <img src="https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/wireframe/main-page.jpg" width="400" height="200" alt="Main page">
 </p>
 
 * **Unknown city / Not in databse**
+  - Mistakes are always an option, and I would like in case user made a mistake to show it so that it can be corrected.
 <p align="center">
   <img src="https://raw.githubusercontent.com/romangrubic/weather-app-openweather/master/assets/images/readme/wireframe/unknown-city.jpg" width="400" height="200" alt="Unknown city/Not in database">
 </p>
@@ -275,7 +280,7 @@ In addition, if a user writes incorrect name of the city or city does not exist 
  in database and ask him to try again.
 
 In case user types three or more times spacebar character in search input field and presses enter, 
-it will show him that "`Empty space` is not in our database" and instruct him to try again.
+it will show him that "`(blank space)` is not in our database" and instruct him to try again.
 
 All links will open in a new tab using `target="_blank"`. All links have been manually tested to ensure that they are pointing to the correct destination.
 
@@ -287,13 +292,6 @@ a warning of `empty heading`. This heading will be populated by JavaScript file 
 
 <p align="center">
   <img src="https://github.com/romangrubic/weather-app-openweather/blob/master/assets/images/readme/testing/warning.png?raw=true" width="300" height="80" alt="HTML Validator - warning">
-</p>
-
-When data is pulled from DarkSky API, console is reporting error as shown on picture below. It does not affect web-site functionality 
-as **that** data is **actually** successfuly pulled from DarkSky API. I tried removing that data but it would just go to next data that is pulled.
-
-<p align="center">
-  <img src="https://github.com/romangrubic/weather-app-openweather/blob/master/assets/images/readme/testing/destructure-property.png?raw=true" width="500" height="70" alt="Console error">
 </p>
 
 Additional manual testing was done to ensure:
