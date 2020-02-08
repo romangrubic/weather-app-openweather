@@ -1,7 +1,7 @@
 // --- Landing page ---
 $(document).ready(function () {
     $("#reset").hide();
-    $("#current-weather").hide()
+    $("#current-weather").hide();
     $(".carousel").hide();
     $(".notReal").hide();
 });
@@ -14,11 +14,11 @@ document.getElementById('search-form').addEventListener('submit', function (even
     $(".navbar").hide();
     $("#heading").hide();
     $(".first-slide").hide();
-    $("#current-weather").show()
+    $("#current-weather").show();
     $("#reset").show();
     $(".carousel").show();
     $("#reset").removeClass("header");
-})
+});
 
 // --- Country selector ---
 var countryList = document.getElementById("selectCountry"); 
@@ -28,8 +28,8 @@ xhr.open("GET", `assets/json/country.json`);
 xhr.send();
 xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            setDataCountry(JSON.parse(this.responseText))
-            selectCountry()
+            setDataCountry(JSON.parse(this.responseText));
+            selectCountry();
             }
         };
 
@@ -45,8 +45,8 @@ function selectCountry(){
     let list = document.createElement("option");
     list.textContent = option;
     list.value = option;
-    countryList.appendChild(list)};
-};
+    countryList.appendChild(list);}
+}
     
 // --- When user press "Try a different city" button, page reloads ---
 $("#reload").click(function () {
@@ -57,16 +57,16 @@ $("#reload").click(function () {
 function pullData() {
     let xhr = new XMLHttpRequest();
     let city = document.getElementById("search").value.toUpperCase();
-    if (city[2] == " "){ city = "(blank space)" }
+    if (city[2] == " "){ city = "(blank space)" ;}
     let country = document.getElementById("selectCountry").value;
-    let countryCode = country.slice(-2)
+    let countryCode = country.slice(-2);
 
     // --- If user did NOT SPECIFIED country ---
     if(countryCode == " -")
-        {xhr.open("GET", `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=bff58e85aa4f33dcceeb856d37837f05`)}
+        {xhr.open("GET", `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=bff58e85aa4f33dcceeb856d37837f05`);}
     
     // --- If user SPECIFIED country ---
-    else{xhr.open("GET", `https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&units=metric&APPID=bff58e85aa4f33dcceeb856d37837f05`)};
+    else{xhr.open("GET", `https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&units=metric&APPID=bff58e85aa4f33dcceeb856d37837f05`);}
     
     xhr.send();
     xhr.onreadystatechange = function () {
@@ -76,24 +76,24 @@ function pullData() {
 
             // --- If the user searched for city but didn't select country ---
             if(country.slice(-2) == " -"){
-            $("#cityName").text('"' + city + '"')}
+            $("#cityName").text('"' + city + '"');}
             
             // --- If the user selected country ---
-            else {$("#cityName").text('"' + city + ", " + country.slice(0, -4)+ '"')};
+            else {$("#cityName").text('"' + city + ", " + country.slice(0, -4)+ '"');}
         }
         // --- otherwise, pull data and show it.
         else if (this.readyState == 4 && this.status == 200) {
             setDataOpenWeather(JSON.parse(this.responseText));
             currentWeather();
-            initMap()
+            initMap();
             currentWeatherExtraData();
-            darkSkyAPI()
+            darkSkyAPI();
         }
     };
 }
 // --- If the city name is NOT in database --- 
 function notInDatabase() {
-    $("#current-weather").hide()
+    $("#current-weather").hide();
     $(".notReal").show();
     $("#carousel").toggle();
 }
@@ -162,14 +162,14 @@ function currentWeatherExtraData(){
     // --- Sunrise and sunset based on that city local time ---
     let currSunRis = new Date((sunrise + timezone) * 1000);
     let currSunRisH = currSunRis.getHours();
-    if (currSunRisH < 10) { currSunRisH = "0" + currSunRisH }
+    if (currSunRisH < 10) { currSunRisH = "0" + currSunRisH ;}
     let currSunRisM = currSunRis.getMinutes();
-    if (currSunRisM < 10) { currSunRisM = "0" + currSunRisM }
+    if (currSunRisM < 10) { currSunRisM = "0" + currSunRisM ;}
     $("#sunrise").text("Sunrise at - " + currSunRisH + ":" + currSunRisM + " hrs");
     let currSunSet = new Date((sunset + timezone) * 1000);
     let currSunSetH = currSunSet.getHours();
     let currSunSetM = currSunSet.getMinutes();
-    if (currSunSetM < 10) { currSunSetM = "0" + currSunSetM }
+    if (currSunSetM < 10) { currSunSetM = "0" + currSunSetM ;}
     $("#sunset").text("Sunset at - " + currSunSetH + ":" + currSunSetM + " hrs");
 }
 
@@ -186,7 +186,7 @@ function darkSkyAPI() {
         if (this.readyState == 4 && this.status == 200) {
             setDataDarkSky(JSON.parse(this.responseText));
             $("#loader-carousel").toggleClass("hide-loader");
-            $(".first-slide").show()
+            $(".first-slide").show();
             carouselLoop();
         }
     };

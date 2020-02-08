@@ -295,11 +295,11 @@ a warning of `empty heading`. This heading will be populated by JavaScript file 
 </p>
 
 Additional manual testing was done to ensure:
-* The web-site runs as intended.
-* Appropriate notifications show up when the specific conditions are met.
-* Gmaps updates correctly when coordinates are pulled from API.
-* Modal is working correctly.
-* The buttons provided to the user, functioned as intended.
+* The web-site runs as intended. - Works as expected
+* Appropriate notifications show up when the specific conditions are met. - Works as expected
+* Gmaps updates correctly when coordinates are pulled from API. - Works as expected
+* Modal is working correctly. - Works as expected
+* The buttons provided to the user, functioned as intended. - Works as expected
 
 
 ### Validating code
