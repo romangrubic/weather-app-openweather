@@ -21,17 +21,10 @@ document.getElementById('contactForm').addEventListener('submit', function (even
     return false;
 });
 
-// --- Waiting to process e-mail ---
-document.getElementById('submit').addEventListener('click', function(){
-    $("#submit").text("Submitting...");
-    $("#submit").removeClass("btn-danger");
-    $("#submit").addClass("btn-warning");
-});
-
 // --- Changes text in button to notify user that e-mail was sent successfuly (200) ---
 function notification() {
     $("#submit").text("E-mail submitted! Closing...");
-    $("#submit").removeClass("btn-warning");
+    $("#submit").removeClass("btn-danger");
     $("#submit").addClass("btn-success");
     setTimeout(function () { $("#contactModal").modal("toggle"); }, 2000);
 }

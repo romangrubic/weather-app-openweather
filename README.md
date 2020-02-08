@@ -214,8 +214,8 @@ positive and it will be a web-site which user will visit in future.
 * Contact modal
 
   - When user click on contact icon, it opens a new modal. User has to input all the requested information in order for e-mail to be sent. When the e-mail has been submitted, 
-  the text in the submit button will go from red background color and `Submit` to yellow background color with `Submitting...` text and then if it was successfuly sent (status=200), it will go green background color and `E-mail submitted! Closing...` and modal will close itself after 2seconds using `setTimeout` function. 
-  If it was unsuccessful (status=404), it will turn gray background color with `Failed to submit. Refresh page` text.
+  the text in the submit button will go from red background color and `Submit` to green background color and `E-mail submitted! Closing...` and modal will close itself after 2seconds using `setTimeout` function. 
+  If it was unsuccessful, it will turn gray background color with `Failed to submit. Refresh page` text.
 
 [Back to top](#summary)
 
